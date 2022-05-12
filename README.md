@@ -3,7 +3,7 @@
 * [x] Autenticação de usuários
 
 * [x] Cadastro de games
-* [ ] O usuário deve estar autenticado como administrador
+* [ ] O usuário deve estar autenticado como administrador para cadastrar um jogo toda vez que chegar na locadora
 
 * [x] Listagem de games disponíveis para aluguel
 
