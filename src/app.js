@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const {v4: uuid} = require('uuid');
+const bcrypt = require('bcrypt');
+const { sign } = require('jsonwebtoken');
+const { hash } = require('bcrypt');
+require('dotenv').config();
 
 app.use(express.json());
 app.use(cors());
@@ -61,7 +65,7 @@ app.get('/', (req, res) => {
 })
 
 //Cadastro de usuário
-app.post('/users', (req, res) => {
+app.post('/users', async (req, res) => {
   const {name, email, password} = req.body
 
   const user = users.find(user => user.email === email)
@@ -70,7 +74,9 @@ app.post('/users', (req, res) => {
     return res.status(400).json({messsage: 'Usuário já existe com e-mail especificado.'})
   }
 
-  users.push({id: uuid(), name, email, password, admin: false, createdAt: new Date()})
+  const hashedPassword = await hash(password, 10)
+
+  users.push({id: uuid(), name, email, password: hashedPassword, admin: false, createdAt: new Date()})
 
   return res.status(201).send(users[users.length - 1])
 })
@@ -100,6 +106,31 @@ app.post('/games', (req, res) => {
 app.get('/available', (req, res) => {
   const availableGames = games.filter(game => game.available)
   return res.send(availableGames)
+})
+
+//Login
+app.post('/users/login', async (req, res) => {
+  
+  const {email, password} = req.body
+
+  const user = users.find(user => user.email === email)
+
+  if(!user){
+    return res.status(400).send({message: 'Usuário ou senha inválido'})
+  }
+
+  const passwordMatch = await bcrypt.compare(password, user.password)
+
+  if(!passwordMatch){
+    return res.status(400).send({message: 'Usuário ou senha inválidos'})
+  }
+
+  const token = sign({email}, process.env.SECRET_KEY, {
+    subject: user.id,
+    expiresIn: '1d'
+  })
+
+  return res.json(token)
 })
 
 module.exports = app
