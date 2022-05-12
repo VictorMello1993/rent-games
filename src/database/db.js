@@ -1,5 +1,7 @@
 exports.users = []
 
+exports.games = []
+
 exports.genres = [
   {
     id: 1,
