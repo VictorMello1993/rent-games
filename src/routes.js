@@ -4,6 +4,7 @@ const createUserController = require('./modules/users/createUser/createUserUseCa
 const authUserController = require('./modules/users/auth/authUserController')
 const createGameController = require('./modules/games/createGame/createGameController')
 const listAvailableController = require('./modules/games/listAvailable/listAvailableController')
+const ensureAuthenticated = require('./middlewares/ensureAuthenticated')
 
 const routes = Router()
 

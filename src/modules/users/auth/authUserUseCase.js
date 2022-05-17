@@ -1,6 +1,6 @@
 const db = require('../../../database/db')
 const {compare} = require('bcrypt')
-const {sign} = require('jsonwebtoken')
+const {generateToken} = require('../../../utils/helpers')
 
 exports.execute = async ({email, password}) => {
   
@@ -16,10 +16,7 @@ exports.execute = async ({email, password}) => {
     throw new Error('Usuário ou senha inválidos')
   }
   
-  const token = sign({email}, process.env.SECRET_KEY, {
-    subject: user.id,
-    expiresIn: '1d'
-  })
+  const token = generateToken(user.email)
 
   return token
 }

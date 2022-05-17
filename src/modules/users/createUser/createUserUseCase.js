@@ -1,4 +1,4 @@
-const { hash } = require('bcrypt');
+const {generateHash} = require('../../../utils/helpers')
 const db = require('../../../database/db');
 const {v4: uuid} = require('uuid')
 
@@ -9,7 +9,7 @@ exports.execute = async ({ email, password }) => {
     throw new Error('Usuário já existe com e-mail especificado.')
   }
 
-  const hashedPassword = await hash(password, 10)
+  const hashedPassword = await generateHash(password)
 
   const newUser = Object.assign({id: uuid(), email, password: hashedPassword, admin: false, dataCadastro: new Date()}, user)
 
