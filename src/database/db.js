@@ -57,3 +57,5 @@ exports.genres = [
     name: 'Terror'
   },
 ]
+
+exports.rentals = []

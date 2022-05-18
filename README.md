@@ -7,8 +7,12 @@
 
 * [x] Listagem de games disponíveis para aluguel
 
-* [ ] Efetuar aluguel de um jogo
+* [x] Efetuar aluguel de um jogo
 * [x] O usuário deve estar autenticado como usuário comum para poder efetuar um aluguel
+* [x] O aluguel deve ter duração mínima de 7 dias
+
+* [ ] Devolução de um jogo
+* [ ] Calcular o valor da multa proporcional aos dias de atraso
 
 * [ ] Criar um middleware para tratamento de erros das requisições
 * [ ] Criar um middleware para validação dos parâmetros de entrada da API
