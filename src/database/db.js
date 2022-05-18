@@ -4,7 +4,8 @@ exports.users = [
     admin: true,
     email: 'admin@gmail.com',
     name: 'Admin example',
-    password: '$2b$10$frTuv93ex1ShRzfMAvFm5eaiFR9OQBM.Sg7cyokkxrE6oGaR/Qo4.'    
+    password: '$2b$10$frTuv93ex1ShRzfMAvFm5eaiFR9OQBM.Sg7cyokkxrE6oGaR/Qo4.',
+    created_at: new Date()    
   }
 ]
 
