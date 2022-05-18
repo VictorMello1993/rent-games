@@ -1,4 +1,4 @@
-const {verifyToken} = require('../utils/helpers')
+const {verifyToken, getSubjectByToken} = require('../utils/helpers')
 
 module.exports = (req, res, next) => {
   const {authorization} = req.headers
@@ -24,6 +24,10 @@ module.exports = (req, res, next) => {
   if(!verifyToken(token)){
     return res.status(401).json({message: 'Token inválido'})
   }
+
+  const subject = getSubjectByToken(token)
+
+  req.user = {id: subject}
 
   next()
 }

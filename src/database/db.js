@@ -1,4 +1,12 @@
-exports.users = []
+exports.users = [
+  {
+    id: 'be72b647-09a8-47ec-8c60-685b1935c5b5',
+    admin: true,
+    email: 'admin@gmail.com',
+    name: 'Admin example',
+    password: '$2b$10$frTuv93ex1ShRzfMAvFm5eaiFR9OQBM.Sg7cyokkxrE6oGaR/Qo4.'    
+  }
+]
 
 exports.games = []
 

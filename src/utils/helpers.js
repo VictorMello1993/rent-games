@@ -11,10 +11,12 @@ exports.generateHash = async (password) => {
   return bcrypt.hashSync(password, hashedPassword)
 }
 
-exports.generateToken = ({...payload}) => {
+exports.generateToken = (...payload) => {      
+  const [id, ...rest] = payload
   return {
     type: 'Bearer',
-    token: jwt.sign({payload}, process.env.SECRET_KEY, {
+    token: jwt.sign({rest}, process.env.SECRET_KEY, {
+      subject: id,
       expiresIn: parseInt(JWT_EXPIRES_IN)
     })
   }
@@ -27,3 +29,7 @@ exports.verifyToken = (token) =>
     }
     return true
   })
+
+exports.getSubjectByToken = (token) => {
+  return jwt.verify(token, process.env.SECRET_KEY).sub  
+}

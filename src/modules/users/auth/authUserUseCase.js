@@ -1,9 +1,8 @@
 const db = require('../../../database/db')
 const {compare} = require('bcrypt')
-const {generateToken} = require('../../../utils/helpers')
+const {generateToken, generateHash} = require('../../../utils/helpers')
 
 exports.execute = async ({email, password}) => {
-  
   const user = db.users.find(user => user.email === email)
 
   if(!user){
@@ -15,8 +14,8 @@ exports.execute = async ({email, password}) => {
   if(!passwordMatch){
     throw new Error('Usuário ou senha inválidos')
   }
-  
-  const token = generateToken(user.email)
+    
+  const token = generateToken(user.id, user.email, user.name)
 
   return token
 }

@@ -5,12 +5,13 @@ const authUserController = require('./modules/users/auth/authUserController')
 const createGameController = require('./modules/games/createGame/createGameController')
 const listAvailableController = require('./modules/games/listAvailable/listAvailableController')
 const ensureAuthenticated = require('./middlewares/ensureAuthenticated')
+const ensureAdmin = require('./middlewares/ensureAdmin')
 
 const routes = Router()
 
 routes.post('/users', createUserController.handle)
 routes.post('/users/login', authUserController.handle)
-routes.post('/games', createGameController.handle)
+routes.post('/games', ensureAuthenticated, ensureAdmin, createGameController.handle)
 routes.get('/games/available', listAvailableController.handle)
 
 module.exports = routes

@@ -2,7 +2,7 @@ const {generateHash} = require('../../../utils/helpers')
 const db = require('../../../database/db');
 const {v4: uuid} = require('uuid')
 
-exports.execute = async ({ email, password }) => {
+exports.execute = async ({ email, name, password }) => {
   const user = db.users.find(user => user.email === email)
 
   if (user) {
@@ -11,7 +11,7 @@ exports.execute = async ({ email, password }) => {
 
   const hashedPassword = await generateHash(password)
 
-  const newUser = Object.assign({id: uuid(), email, password: hashedPassword, admin: false, dataCadastro: new Date()}, user)
+  const newUser = Object.assign({id: uuid(), email, name, password: hashedPassword, admin: false, dataCadastro: new Date()}, user)
 
   db.users.push(newUser)
 
