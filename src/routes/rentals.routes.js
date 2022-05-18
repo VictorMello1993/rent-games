@@ -6,3 +6,5 @@ const ensureAuthenticated = require('../middlewares/ensureAuthenticated')
 const rentalsRoutes = Router()
 
 rentalsRoutes.post('/', ensureAuthenticated, createRentalController.handle)
+
+module.exports = rentalsRoutes

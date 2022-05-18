@@ -1,4 +1,4 @@
-const Router = require('Router')
+const Router = require('express')
 
 const usersRoutes = require('./users.routes')
 const gamesRoutes = require('./games.routes')

@@ -11,3 +11,4 @@ const gamesRoutes = Router()
 gamesRoutes.post('/', ensureAuthenticated, ensureAdmin, createGameController.handle)
 gamesRoutes.get('/available', listAvailableController.handle)
 
+module.exports = gamesRoutes

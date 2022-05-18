@@ -7,3 +7,5 @@ const usersRoutes = Router()
 
 usersRoutes.post('/', createUserController.handle)
 usersRoutes.post('/login', authUserController.handle)
+
+module.exports = usersRoutes
