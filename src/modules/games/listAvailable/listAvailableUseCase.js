@@ -1,6 +1,6 @@
 const db = require ('../../../database/db')
 
-exports.execute = () => {
+module.exports.execute = () => {
   const availableGames = db.games.filter(game => game.available)
 
   return availableGames

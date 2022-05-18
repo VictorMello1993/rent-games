@@ -1,6 +1,6 @@
 const createGameUseCase = require('../createGame/createGameUseCase')
 
-exports.handle = (req, res) => {
+module.exports.handle = (req, res) => {
   const {name, description, idGenre, releaseDate} = req.body
 
   const result = createGameUseCase.execute({name, description, idGenre, releaseDate})

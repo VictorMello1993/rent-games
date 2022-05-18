@@ -2,7 +2,7 @@ const db = require('../../database/db')
 const { v4: uuid } = require('uuid')
 const { compareInHours, dateNow } = require('../../utils/helpers')
 
-module.exports.execute = async ({ user_id, game_id, expiration_date }) => {
+module.exports.execute = ({ user_id, game_id, expiration_date }) => {
   const minimumHour = 168 //7 dias = 168 horas
 
   //Verificar se o jogo está indisponível para aluguel

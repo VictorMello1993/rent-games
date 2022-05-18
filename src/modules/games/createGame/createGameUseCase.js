@@ -1,7 +1,7 @@
 const db = require('../../../database/db')
 const {v4: uuid} = require('uuid')
 
-exports.execute = ({name, description, idGenre, releaseDate}) => {
+module.exports.execute = ({name, description, idGenre, releaseDate}) => {
   const game = db.games.find(game => game.name === name)
 
   if(game){
