@@ -34,7 +34,7 @@ exports.verifyToken = (token) =>
   })
 
 exports.getSubjectByToken = (token) => {
-  return jwt.verify(token, process.env.SECRET_KEY).sub  
+  return jwt.verify(token, process.env.SECRET_KEY).sub
 }
 
 exports.convertToUTC = (date) => {

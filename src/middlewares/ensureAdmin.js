@@ -1,4 +1,3 @@
-const { json } = require('express/lib/response')
 const db = require('../database/db')
 
 module.exports = (req, res, next) => {
