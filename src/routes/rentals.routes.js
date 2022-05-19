@@ -24,4 +24,5 @@ rentalsRoutes.post('/', ensureAuthenticated,
     }),
   }), createRentalController.handle)
 
+
 module.exports = rentalsRoutes

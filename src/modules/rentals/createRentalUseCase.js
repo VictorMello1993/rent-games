@@ -1,9 +1,9 @@
 const db = require('../../database/db')
 const { v4: uuid } = require('uuid')
-const { compareInHours, dateNow } = require('../../utils/helpers')
+const { compareInDays, dateNow } = require('../../utils/helpers')
 
 module.exports.execute = ({ user_id, game_id, expiration_date }) => {
-  const minimumHour = 168 //7 dias = 168 horas
+  const minimumDay = 7
 
   //Verificar se o jogo está indisponível para aluguel
   const gameUnavailable = db.rentals.find(rental => rental.game_id === game_id && !end_date)
@@ -21,9 +21,9 @@ module.exports.execute = ({ user_id, game_id, expiration_date }) => {
 
   //Verificando se a previsão de devolução do jogo está de acordo com a duração mínima do aluguel
   const current_date = dateNow()
-  const compare = compareInHours(current_date, expiration_date)
+  const compare = compareInDays(current_date, expiration_date)
   
-  if (compare < minimumHour) {
+  if (compare < minimumDay) {
     throw new Error('Tempo de retorno inválido')
   }
 

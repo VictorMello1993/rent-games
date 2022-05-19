@@ -11,5 +11,7 @@ module.exports.handle = (req, res) => {
     expiration_date
   })
 
+  console.log(result)
+
   return res.status(201).json({message: 'Aluguel realizado com sucesso'})
 }
