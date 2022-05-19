@@ -15,4 +15,4 @@
 * [ ] Calcular o valor da multa proporcional aos dias de atraso
 
 * [ ] Criar um middleware para tratamento de erros das requisições
-* [ ] Criar um middleware para validação dos parâmetros de entrada da API
+* [x] Criar um middleware para validação dos parâmetros de entrada da API
