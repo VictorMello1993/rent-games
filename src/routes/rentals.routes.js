@@ -1,7 +1,9 @@
 const Router = require('express')
 const Joi = require('Joi').extend(require('@joi/date'))
 
-const createRentalController = require('../modules/rentals/createRentalController')
+const createRentalController = require('../modules/rentals/createRental/createRentalController')
+const devolutionRentalController = require('../modules/rentals/devolutionRental/devolutionRentalController')
+
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated')
 const validateInputData = require('../middlewares/validateInputData')
 
@@ -24,5 +26,17 @@ rentalsRoutes.post('/', ensureAuthenticated,
     }),
   }), createRentalController.handle)
 
+rentalsRoutes.put('/devolution/:id', ensureAuthenticated,
+  validateInputData('params', {
+    id: Joi.string().required().guid({
+      version: [
+        'uuidv4'
+      ]
+    }).messages({
+      'string.empty': "É necessário preencher o id do aluguel na rota",
+      'any.required': "É necessário preencher o id do aluguel na rota",
+      'string.guid': "O id do jogo deve ser do tipo uuid"
+    })
+  }), devolutionRentalController.handle)
 
 module.exports = rentalsRoutes
