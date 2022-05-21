@@ -1,7 +1,7 @@
 const db = require('../../../database/db')
 const { v4: uuid } = require('uuid')
 
-module.exports.execute = ({ name, description, idGenre, releaseDate, fine_amount, daily_rate }) => {
+module.exports.execute = ({ name, description, idGenre, releaseDate, fineAmount, dailyRate }) => {
   const game = db.games.find(game => game.name === name)
 
   if (game) {
@@ -21,8 +21,8 @@ module.exports.execute = ({ name, description, idGenre, releaseDate, fine_amount
     idGenre,
     releaseDate,
     available: true,
-    daily_rate,
-    fine_amount
+    dailyRate,
+    fineAmount
   }, game)
 
   db.games.push(newGame)

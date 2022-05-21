@@ -2,18 +2,18 @@ const db = require('../../../database/db')
 const { v4: uuid } = require('uuid')
 const { compareInDays, dateNow } = require('../../../utils/helpers')
 
-module.exports.execute = ({ user_id, game_id, expiration_date }) => {
+module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7
 
   //Verificar se o jogo está indisponível para aluguel
-  const gameUnavailable = db.rentals.find(rental => rental.game_id === game_id && !end_date)
+  const gameUnavailable = db.rentals.find(rental => rental.gameId === gameId && !endDate)
 
   if (gameUnavailable) {
     throw new Error('Jogo indisponível para aluguel.')
   }
 
   //Verificar se o jogo já foi alugado por usuário
-  const gameAlreadyRentByUser = db.rentals.find(rental => rental.user_id === user_id && !end_date)
+  const gameAlreadyRentByUser = db.rentals.find(rental => rental.userId === userId && !endDate)
 
   if (gameAlreadyRentByUser) {
     throw new Error('Jogo já foi alugado.')
@@ -21,7 +21,7 @@ module.exports.execute = ({ user_id, game_id, expiration_date }) => {
 
   //Verificando se a previsão de devolução do jogo está de acordo com a duração mínima do aluguel
   const current_date = dateNow()
-  const compare = compareInDays(current_date, expiration_date)
+  const compare = compareInDays(current_date, expirationDate)
 
   if (compare < minimumDay) {
     throw new Error('Tempo de retorno inválido')
@@ -29,17 +29,17 @@ module.exports.execute = ({ user_id, game_id, expiration_date }) => {
 
   const rental = Object.assign({
     id: uuid(),
-    user_id,
-    game_id,
-    expiration_date,
-    end_date: null,
+    userId,
+    gameId,
+    expirationDate,
+    endDate: null,
     total: null,
-    start_date: dateNow()
+    startDate: dateNow()
   }, gameUnavailable)
 
   db.rentals.push(rental)
 
-  const index = db.games.findIndex(game => game.id === game_id)
+  const index = db.games.findIndex(game => game.id === gameId)
 
   //Ao alugar um jogo, o sistema deve atualizar o status para indisponível
   db.games[index].available = false

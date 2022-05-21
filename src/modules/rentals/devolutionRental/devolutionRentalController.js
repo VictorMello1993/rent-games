@@ -1,12 +1,12 @@
 const devolutionRentalUseCase = require('../devolutionRental/devolutionRentalUseCase')
 
 module.exports.handle = (req, res) => {
-  const {id: user_id} = req.user
+  const {id: userId} = req.user
   const {id} = req.params
 
   const result = devolutionRentalUseCase.execute({
     id,
-    user_id
+    userId
   })
 
   return res.status(200).json(result)

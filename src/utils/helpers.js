@@ -48,6 +48,10 @@ exports.dateNow = () => {
   return dayjs().format('DD/MM/YYYY')
 }
 
+exports.dateTimeNow = () => {
+  return dayjs().format('DD/MM/MM HH:mm:ss')
+}
+
 exports.toDateArray = (dateStr) => {
   return dateStr.split('/').map(part => Number(part))
 }

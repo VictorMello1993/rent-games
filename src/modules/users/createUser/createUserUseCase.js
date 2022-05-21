@@ -1,4 +1,4 @@
-const { generateHash } = require('../../../utils/helpers')
+const { generateHash, dateNow, dateTimeNow } = require('../../../utils/helpers')
 const db = require('../../../database/db');
 const { v4: uuid } = require('uuid')
 
@@ -18,7 +18,7 @@ module.exports.execute = async ({ email, name, password, birthdate, telephone })
     name, 
     password: hashedPassword, 
     admin: false, 
-    created_at: new Date(),
+    createdAt: dateTimeNow(),
     birthdate,
     telephone
   }, user)
@@ -30,7 +30,7 @@ module.exports.execute = async ({ email, name, password, birthdate, telephone })
     email: newUser.email,
     name: newUser.name,
     admin: newUser.admin,
-    created_at: newUser.created_at,
+    createdAt: newUser.createdAt,
     birthdate: newUser.birthdate,
     telephone: newUser.telephone
   }
