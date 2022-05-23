@@ -72,6 +72,8 @@ npm run dev
 yarn dev
 ```
 
+OBS: para testar o endpoint de autenticação de usuário, é preciso adicionar o arquivo `.env` na raíz do projeto com a variável SECRET_KEY para incluir o valor da chave secreta que deve ser criptografada. Deixarei o arquivo `.env.example` para melhor visualização.
+
 
 ## Endpoints para importar
 Os endpoints se encontram quando clicar no botão abaixo para importar a collection automaticamente dentro de um programa cliente HTTP (contanto que já possua um cliente instalado no computador). Dessa forma, isso elimina a necessidade de ter um arquivo json salvo no seu computador e ter que importar manualmente dentro de um cliente.
