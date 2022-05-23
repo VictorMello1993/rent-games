@@ -79,7 +79,7 @@ OBS: para testar o endpoint de autenticação de usuário, é preciso adicionar 
 Os endpoints se encontram quando clicar no botão abaixo para importar a collection automaticamente dentro de um programa cliente HTTP (contanto que já possua um cliente instalado no computador). Dessa forma, isso elimina a necessidade de ter um arquivo json salvo no seu computador e ter que importar manualmente dentro de um cliente.
 
 ### Insomnia
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rent%20Games%20-%20Backend%20com%20Node.js%20e%20Express%20-%20Victor%20Mello&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2F9d7f6d6d4b7ddc36003ae31e45d759b3%2Fraw%2Fc85c7de056a66087a23c3af8ff8ff9d3027f0efc%2Fgistfile1.txt)
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rent%20Games%20-%20Backend%20com%20Node.js%20e%20Express%20-%20Victor%20Mello&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2F94941a950736683eaa12addf890aa375%2Fraw%2F5051fb132840fbceeab22c9497bdc3f0b0181761%2Fgistfile1.txt)
 
 
 ### Postman
