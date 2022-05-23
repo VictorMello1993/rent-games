@@ -85,4 +85,10 @@ Os endpoints se encontram quando clicar no botão abaixo para importar a collect
 ### Postman
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e23be45826a5b473cd99?action=collection%2Fimport)
 
-Neste último caso, só é importada a collection, e não environment junto como ocorre com Insomnia. Para importá-lo, basta obter o arquivo `workspace.postman_globals.json` do código fonte, e dentro do Postman importar 
+Neste último caso, é importada somente a collection, e não environment junto como funciona no Insomnia. Para importá-lo, basta obter o arquivo `workspace.postman_globals.json` do código fonte, e dentro do Postman em **Environments** no menu lateral esquerdo, clicar em **import**
+
+![Screenshot_2](https://user-images.githubusercontent.com/35710766/169910033-a1b6f959-dbc8-4a79-927f-a945e33df483.png)
+
+</br>
+
+![Screenshot_3](https://user-images.githubusercontent.com/35710766/169910086-d7dbe783-1d76-4379-a6f2-4b62d8f8f298.png)
