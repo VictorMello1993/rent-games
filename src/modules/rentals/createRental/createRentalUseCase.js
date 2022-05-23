@@ -4,16 +4,16 @@ const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/helpers'
 
 module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7
-
-  //Verificar se o jogo está indisponível para aluguel
-  const gameUnavailable = db.rentals.find(rental => rental.gameId === gameId && !endDate)
+  
+  //Verificar se o jogo já foi alugado
+  const gameUnavailable = db.rentals.find(rental => rental.gameId === gameId && !rental.endDate)
 
   if (gameUnavailable) {
     throw new Error('Jogo indisponível para aluguel.')
   }
 
   //Verificar se o jogo já foi alugado por usuário
-  const gameAlreadyRentByUser = db.rentals.find(rental => rental.userId === userId && !endDate)
+  const gameAlreadyRentByUser = db.rentals.find(rental => rental.userId === userId && !rental.endDate)
 
   if (gameAlreadyRentByUser) {
     throw new Error('Jogo já foi alugado.')
