@@ -4,7 +4,7 @@ const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/helpers'
 
 module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7
-  
+
   //Verificar se o jogo já foi alugado
   const gameUnavailable = db.rentals.find(rental => rental.gameId === gameId && !rental.endDate)
 
