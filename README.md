@@ -78,3 +78,7 @@ Os endpoints se encontram quando clicar no botão abaixo para importar a collect
 
 ### Insomnia
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rent%20Games%20-%20Backend%20com%20Node.js%20e%20Express%20-%20Victor%20Mello&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2F9d7f6d6d4b7ddc36003ae31e45d759b3%2Fraw%2Fc85c7de056a66087a23c3af8ff8ff9d3027f0efc%2Fgistfile1.txt)
+
+
+### Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/999aa62c466d19ebb44a?action=collection%2Fimport)
