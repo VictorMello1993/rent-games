@@ -6,5 +6,5 @@ module.exports.handle = async (req, res) => {
 
   const result = await authUserUseCase.execute({email, password})
 
-  return res.json(result)
+  return res.status(200).send(result)
 }

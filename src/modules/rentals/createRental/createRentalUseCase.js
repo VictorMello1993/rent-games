@@ -1,6 +1,6 @@
 const db = require('../../../database/db')
 const { v4: uuid } = require('uuid')
-const { compareInDays, dateNow } = require('../../../utils/helpers')
+const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/helpers')
 
 module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7
@@ -34,7 +34,8 @@ module.exports.execute = ({ userId, gameId, expirationDate }) => {
     expirationDate,
     endDate: null,
     total: null,
-    startDate: dateNow()
+    startDate: dateNow(),
+    updatedDate: dateTimeNow(),
   }, gameUnavailable)
 
   db.rentals.push(rental)

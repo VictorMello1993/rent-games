@@ -1,5 +1,5 @@
 const db = require('../../../database/db')
-const { dateNow, compareInDays } = require('../../../utils/helpers')
+const { dateNow, compareInDays, dateTimeNow } = require('../../../utils/helpers')
 
 
 module.exports.execute = ({ id, userId }) => {
@@ -41,6 +41,7 @@ module.exports.execute = ({ id, userId }) => {
 
   rental.endDate = currentDate
   rental.total = total
+  rental.updatedDate = dateTimeNow()
 
   //Atualizando o aluguel com o valor total e a data do término
   const rentalIndex = db.rentals.findIndex(rental => rental.id === rental.id)

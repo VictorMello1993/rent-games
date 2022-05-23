@@ -9,5 +9,5 @@ module.exports.handle = (req, res) => {
     userId
   })
 
-  return res.status(200).json(result)
+  return res.status(200).json({message: 'Devolução realizada com sucesso', rental: result})
 }
