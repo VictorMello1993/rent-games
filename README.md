@@ -1,3 +1,11 @@
+
+## Projeto: Rent Games
+API responsável pelo gerenciamento de alugueis de games de uma locadora.
+
+
+
+
+## Requisitos funcionais
 **Cadastro de usuários**
 * [x] Cadastro de usuários
 * [x] Autenticação de usuários
@@ -19,6 +27,8 @@
 * [x] Ao realizar a devolução, será obtido o valor total do aluguel (diária + multa)
 * [x] O usuário deve estar autenticado para efetuar uma devolução
 
-**Requisitos não funcionais**
+
+### Requisitos não funcionais
 * [ ] Criar um middleware para tratamento de erros das requisições
 * [x] Criar um middleware para validação dos parâmetros de entrada da API
+* [x] O tempo de duração do token do usuário deve ser de 4 horas
