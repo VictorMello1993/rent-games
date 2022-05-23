@@ -1,8 +1,11 @@
-
 ## Projeto: Rent Games
 API responsável pelo gerenciamento de alugueis de games de uma locadora.
 
+## Diagrama de casos de uso
+![CasoUsoRentalGames](https://user-images.githubusercontent.com/35710766/169889660-0a99653b-d50f-4eba-84aa-bd55806f6fbf.png)
 
+## Diagrama de classes
+![DiagramaClasseRentalGames](https://user-images.githubusercontent.com/35710766/169889765-d7a24cbd-fb71-4c59-af1a-f9799f52ac0e.png)
 
 
 ## Requisitos funcionais
@@ -28,7 +31,50 @@ API responsável pelo gerenciamento de alugueis de games de uma locadora.
 * [x] O usuário deve estar autenticado para efetuar uma devolução
 
 
-### Requisitos não funcionais
+## Requisitos não funcionais
 * [ ] Criar um middleware para tratamento de erros das requisições
 * [x] Criar um middleware para validação dos parâmetros de entrada da API
 * [x] O tempo de duração do token do usuário deve ser de 4 horas
+
+## Bibliotecas utilizadas
+* <a href="https://www.npmjs.com/package/express">Express</a>
+* <a href="https://www.npmjs.com/package/cors">cors</a>
+* <a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken</a>
+* <a href="https://www.npmjs.com/package/bcryptjs">bcryptjs</a>
+* <a href="https://www.npmjs.com/package/dotenv">dotenv</a>
+* <a href="https://www.npmjs.com/package/dayjs">dayjs</a>
+* <a href="https://www.npmjs.com/package/joi">joi</a>
+* <a href="https://www.npmjs.com/package/uuid">uuid</a>
+* <a href="https://www.npmjs.com/package/nodemon">nodemon</a>
+
+## Executando o projeto
+
+1. Clonar o repositório 
+```sh
+git clone https://gitlab.com/pos-fullstack-2022-01/api-aluguel-games-victor-mello.git
+```
+
+2. Instalar todas as dependências ao projeto
+```sh
+# npm
+npm install
+
+# Yarn
+yarn
+```
+
+3. Executando o servidor
+```sh
+# npm
+npm run dev
+
+# Yarn
+yarn dev
+```
+
+
+## Endpoints para importar
+Os endpoints se encontram quando clicar no botão abaixo para importar a collection automaticamente dentro de um programa cliente HTTP (contanto que já possua um cliente instalado no computador). Dessa forma, isso elimina a necessidade de ter um arquivo json salvo no seu computador e ter que importar manualmente dentro de um cliente.
+
+### Insomnia
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rent%20Games%20-%20Backend%20com%20Node.js%20e%20Express%20-%20Victor%20Mello&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2F9d7f6d6d4b7ddc36003ae31e45d759b3%2Fraw%2Fc85c7de056a66087a23c3af8ff8ff9d3027f0efc%2Fgistfile1.txt)
