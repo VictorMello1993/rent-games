@@ -83,4 +83,4 @@ Os endpoints se encontram quando clicar no botão abaixo para importar a collect
 
 
 ### Postman
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/999aa62c466d19ebb44a?action=collection%2Fimport)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e23be45826a5b473cd99?action=collection%2Fimport)
