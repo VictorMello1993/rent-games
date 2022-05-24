@@ -32,7 +32,7 @@ API responsável pelo gerenciamento de alugueis de games de uma locadora.
 
 
 ## Requisitos não funcionais
-* [ ] Criar um middleware para tratamento de erros das requisições
+* [x] Criar um middleware para tratamento de erros das requisições
 * [x] Criar um middleware para validação dos parâmetros de entrada da API
 * [x] O tempo de duração do token do usuário deve ser de 4 horas
 
