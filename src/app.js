@@ -2,14 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const router = require('./routes/index');
-// const error = require('./middlewares/error');
+const error = require('./middlewares/error');
 
 app.use(express.json());
-app.use(router);
 app.use(cors());
-
-app.get('/', (req, res) => {
-  return res.json({messsage: 'Serviço executado com sucesso'})
-})
+app.use(router);
+app.use(error)
 
 module.exports = app

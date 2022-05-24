@@ -8,7 +8,7 @@ module.exports.execute = async ({ email, name, password, birthdate, telephone })
   const user = db.users.find(user => user.email === email)
 
   if (user) {
-    throw new Error('Usuário já existe com e-mail especificado.')
+    throw new Error('Já existe usuário com e-mail especificado')
   }
 
   const hashedPassword = await generateHash(password)

@@ -27,7 +27,5 @@ module.exports.execute = ({ name, description, idGenre, releaseDate, fineAmount,
 
   db.games.push(newGame)
 
-  console.log('db.games', db.games)
-
   return newGame
 }
