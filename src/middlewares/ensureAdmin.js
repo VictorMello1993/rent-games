@@ -1,4 +1,6 @@
 const db = require('../database/db')
+const UserNotFoundError = require('../utils/errors/UserNotFoundError')
+const UserAdminError = require('../utils/errors/UserAdminError')
 
 module.exports = (req, res, next) => {
   const {id}  = req.user
@@ -6,11 +8,11 @@ module.exports = (req, res, next) => {
   const user = db.users.find(user => user.id === id)
 
   if(!user){
-    return res.status(400).json({message: 'Usuário não cadastrado.'})
+    throw new UserNotFoundError()
   }
 
   if(!user.admin){
-    return res.status(400).json({message: 'Usuário não é administrador.'})
+    throw new UserAdminError()
   }
 
   return next()

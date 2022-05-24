@@ -31,5 +31,5 @@ module.exports = (req, res, next) => {
 
   req.user = {id: subject}
 
-  next()
+  return next()
 }

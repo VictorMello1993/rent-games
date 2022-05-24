@@ -19,6 +19,6 @@ module.exports.handle = (req, res, next) => {
     })
     
   } catch (error) {
-    next(new AppError(error.message))   
+    next(error)   
   }
 }

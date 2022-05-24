@@ -7,13 +7,13 @@ module.exports.execute = async ({email, password}) => {
   const user = db.users.find(user => user.email === email)
 
   if(!user){
-    throw new AppError('Usuário ou senha inválidos')
+    throw new AppError('Usuário ou senha inválidos', 401)
   }
 
   const passwordMatch = await compare(password, user.password)
 
   if(!passwordMatch){
-    throw new AppError('Usuário ou senha inválidos')
+    throw new AppError('Usuário ou senha inválidos', 401)
   }
     
   const token = generateToken(user.id, user.email, user.name)

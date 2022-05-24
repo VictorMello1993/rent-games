@@ -14,6 +14,6 @@ module.exports.handle = (req, res, next) => {
     return res.status(200).json({message: 'Devolução realizada com sucesso', rental: result})
 
   } catch (error) {
-    next(new AppError(error.message))   
+    next(error)   
   }
 }

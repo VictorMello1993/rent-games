@@ -10,6 +10,6 @@ module.exports.handle = (req, res, next) => {
     return res.status(201).send(result)
         
   } catch (error) {
-    next(new AppError(error.message))
+    next(error)
   }
 }
