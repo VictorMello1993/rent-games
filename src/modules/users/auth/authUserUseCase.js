@@ -1,6 +1,6 @@
 const db = require('../../../database/db')
 const {compare} = require('bcrypt')
-const {generateToken, generateHash} = require('../../../utils/helpers')
+const {generateToken} = require('../../../utils/authHelpers')
 
 module.exports.execute = async ({email, password}) => {
   const user = db.users.find(user => user.email === email)

@@ -1,4 +1,4 @@
-const {verifyToken, getSubjectByToken} = require('../utils/helpers')
+const {verifyToken, getSubjectByToken} = require('../utils/authHelpers')
 
 module.exports = (req, res, next) => {
   const {authorization} = req.headers

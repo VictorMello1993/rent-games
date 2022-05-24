@@ -1,4 +1,5 @@
-const { generateHash, dateNow, dateTimeNow } = require('../../../utils/helpers')
+const {generateHash} = require('../../../utils/authHelpers')
+const {dateTimeNow} = require('../../../utils/dateHelpers')
 const db = require('../../../database/db');
 const { v4: uuid } = require('uuid')
 

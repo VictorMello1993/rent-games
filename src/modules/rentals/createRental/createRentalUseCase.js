@@ -1,11 +1,11 @@
 const db = require('../../../database/db')
 const { v4: uuid } = require('uuid')
-const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/helpers')
+const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/dateHelpers')
 
 module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7
 
-  //Verificar se o jogo já foi alugado
+  //Verificar se o jogo está indisponível para aluguel
   const gameUnavailable = db.rentals.find(rental => rental.gameId === gameId && !rental.endDate)
 
   if (gameUnavailable) {
