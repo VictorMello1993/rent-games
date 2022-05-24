@@ -1,6 +1,6 @@
-const db = require('../../../database/db')
+const db = require('../database/db')
 const { v4: uuid } = require('uuid')
-const AppError = require('../../../utils/errors/AppError')
+const AppError = require('../utils/errors/AppError')
 
 module.exports.execute = ({ name, description, idGenre, releaseDate, fineAmount, dailyRate }) => {
   const game = db.games.find(game => game.name === name)

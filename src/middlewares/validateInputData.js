@@ -12,8 +12,7 @@ module.exports = (type, params) => {
       })      
 
       if(error){
-        const messages = error.details.map(item => item.message)
-        // return res.status(400).json({messages})          
+        const messages = error.details.map(item => item.message)      
         next(new AppError(messages))
       }
 

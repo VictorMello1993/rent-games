@@ -1,8 +1,8 @@
-const {generateHash} = require('../../../utils/helpers/authHelpers')
-const {dateTimeNow} = require('../../../utils/helpers/dateHelpers')
-const db = require('../../../database/db');
+const {generateHash} = require('../utils/helpers/authHelpers')
+const {dateTimeNow} = require('../utils/helpers/dateHelpers')
+const db = require('../database/db');
 const { v4: uuid } = require('uuid')
-const AppError = require('../../../utils/errors/AppError')
+const AppError = require('../utils/errors/AppError')
 
 module.exports.execute = async ({ email, name, password, birthdate, telephone }) => {
 

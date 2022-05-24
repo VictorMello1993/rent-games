@@ -1,7 +1,7 @@
-const db = require('../../../database/db')
+const db = require('../database/db')
 const { v4: uuid } = require('uuid')
-const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/helpers/dateHelpers')
-const AppError = require('../../../utils/errors/AppError')
+const { compareInDays, dateNow, dateTimeNow } = require('../utils/helpers/dateHelpers')
+const AppError = require('../utils/errors/AppError')
 
 module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7

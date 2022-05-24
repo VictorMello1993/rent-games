@@ -1,6 +1,6 @@
-const db = require('../../../database/db')
-const AppError = require('../../../utils/errors/AppError')
-const { dateNow, compareInDays, dateTimeNow } = require('../../../utils/helpers/dateHelpers')
+const db = require('../database/db')
+const AppError = require('../utils/errors/AppError')
+const { dateNow, compareInDays, dateTimeNow } = require('../utils/helpers/dateHelpers')
 
 
 module.exports.execute = ({ id, userId }) => {
