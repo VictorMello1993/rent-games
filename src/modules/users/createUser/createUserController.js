@@ -1,4 +1,5 @@
 const createUserUseCase = require('./createUserUseCase')
+const AppError = require('../../../utils/errors/AppError')
 
 module.exports.handle = async (req, res, next) => {
   try {
@@ -9,6 +10,6 @@ module.exports.handle = async (req, res, next) => {
     return res.status(200).send(result)
 
   } catch (error) {
-    next(new Error(error.message))
+    next(new AppError(error.message))
   }
 }

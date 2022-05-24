@@ -1,3 +1,4 @@
+const AppError = require('../../../utils/errors/AppError')
 const createGameUseCase = require('../createGame/createGameUseCase')
 
 module.exports.handle = (req, res, next) => {
@@ -9,6 +10,6 @@ module.exports.handle = (req, res, next) => {
     return res.status(201).send(result)
         
   } catch (error) {
-    next(new Error(error.message))
+    next(new AppError(error.message))
   }
 }

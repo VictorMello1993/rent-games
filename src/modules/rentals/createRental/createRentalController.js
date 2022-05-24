@@ -1,3 +1,4 @@
+const AppError = require('../../../utils/errors/AppError')
 const createRentalUseCase = require('./createRentalUseCase')
 const Joi = require('Joi').extend(require('@joi/date'))
 
@@ -18,6 +19,6 @@ module.exports.handle = (req, res, next) => {
     })
     
   } catch (error) {
-    next(new Error(error.message))   
+    next(new AppError(error.message))   
   }
 }

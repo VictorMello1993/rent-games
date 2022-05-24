@@ -1,14 +1,15 @@
-const {generateHash} = require('../../../utils/authHelpers')
-const {dateTimeNow} = require('../../../utils/dateHelpers')
+const {generateHash} = require('../../../utils/helpers/authHelpers')
+const {dateTimeNow} = require('../../../utils/helpers/dateHelpers')
 const db = require('../../../database/db');
 const { v4: uuid } = require('uuid')
+const AppError = require('../../../utils/errors/AppError')
 
 module.exports.execute = async ({ email, name, password, birthdate, telephone }) => {
 
   const user = db.users.find(user => user.email === email)
 
   if (user) {
-    throw new Error('Já existe usuário com e-mail especificado')
+    throw new AppError('Já existe usuário com e-mail especificado')
   }
 
   const hashedPassword = await generateHash(password)

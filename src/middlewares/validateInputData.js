@@ -1,4 +1,5 @@
 const Joi = require('Joi')
+const AppError = require('../utils/errors/AppError')
 
 module.exports = (type, params) => {
   return (req, res, next) => {
@@ -12,7 +13,8 @@ module.exports = (type, params) => {
 
       if(error){
         const messages = error.details.map(item => item.message)
-        return res.status(400).json({messages})
+        // return res.status(400).json({messages})          
+        next(new AppError(messages))
       }
 
       next()

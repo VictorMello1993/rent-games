@@ -1,5 +1,6 @@
 const db = require('../../../database/db')
-const { dateNow, compareInDays, dateTimeNow } = require('../../../utils/dateHelpers')
+const AppError = require('../../../utils/errors/AppError')
+const { dateNow, compareInDays, dateTimeNow } = require('../../../utils/helpers/dateHelpers')
 
 
 module.exports.execute = ({ id, userId }) => {
@@ -9,11 +10,11 @@ module.exports.execute = ({ id, userId }) => {
   const minimumDay = 7
 
   if (!rental) {
-    throw new Error('Aluguel inexistente')
+    throw new AppError('Aluguel inexistente')
   }
 
   if (!game) {
-    throw new Error('Jogo não cadastrado')
+    throw new AppError('Jogo não cadastrado')
   }
 
   const currentDate = dateNow()

@@ -1,7 +1,9 @@
+const AppError = require('../utils/errors/AppError')
+
 module.exports = (err, req, res, next) => {
-  if(err instanceof Error){
-    return res.status(400).json({
-      message: err.message
+  if(err instanceof AppError){
+    return res.status(err.statusCode).json({
+      messages: err.message.includes(',') ? err.messages : err.message
     })
   }
 

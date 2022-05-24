@@ -1,6 +1,7 @@
 const db = require('../../../database/db')
 const { v4: uuid } = require('uuid')
-const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/dateHelpers')
+const { compareInDays, dateNow, dateTimeNow } = require('../../../utils/helpers/dateHelpers')
+const AppError = require('../../../utils/errors/AppError')
 
 module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const minimumDay = 7
@@ -9,14 +10,14 @@ module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const gameUnavailable = db.rentals.find(rental => rental.gameId === gameId && !rental.endDate)
 
   if (gameUnavailable) {
-    throw new Error('Jogo indisponível para aluguel.')
+    throw new AppError('Jogo indisponível para aluguel.')
   }
 
   //Verificar se o jogo já foi alugado por usuário
   const gameAlreadyRentByUser = db.rentals.find(rental => rental.userId === userId && !rental.endDate)
 
   if (gameAlreadyRentByUser) {
-    throw new Error('Jogo já foi alugado.')
+    throw new AppError('Jogo já foi alugado.')
   }
 
   //Verificando se a previsão de devolução do jogo está de acordo com a duração mínima do aluguel
@@ -24,7 +25,7 @@ module.exports.execute = ({ userId, gameId, expirationDate }) => {
   const compare = compareInDays(current_date, expirationDate)
 
   if (compare < minimumDay) {
-    throw new Error('Tempo de retorno inválido')
+    throw new AppError('Tempo de retorno inválido')
   }
 
   const rental = Object.assign({

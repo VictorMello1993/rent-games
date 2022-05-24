@@ -1,17 +1,18 @@
 const db = require('../../../database/db')
 const { v4: uuid } = require('uuid')
+const AppError = require('../../../utils/errors/AppError')
 
 module.exports.execute = ({ name, description, idGenre, releaseDate, fineAmount, dailyRate }) => {
   const game = db.games.find(game => game.name === name)
 
   if (game) {
-    throw new Error('Jogo já existe com nome especificado.')
+    throw new AppError('Jogo já existe com nome especificado.')
   }
 
   const genre = db.genres.find(genre => genre.id === idGenre)
 
   if (!genre) {
-    throw new Error('Gênero inválido.')
+    throw new AppError('Gênero inválido.')
   }
 
   const newGame = Object.assign({

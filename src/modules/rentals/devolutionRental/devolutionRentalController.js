@@ -1,3 +1,4 @@
+const AppError = require('../../../utils/errors/AppError')
 const devolutionRentalUseCase = require('../devolutionRental/devolutionRentalUseCase')
 
 module.exports.handle = (req, res, next) => {
@@ -13,6 +14,6 @@ module.exports.handle = (req, res, next) => {
     return res.status(200).json({message: 'Devolução realizada com sucesso', rental: result})
 
   } catch (error) {
-    next(new Error(error.message))   
+    next(new AppError(error.message))   
   }
 }
