@@ -2,7 +2,7 @@ const db = require('../database/db')
 const { v4: uuid } = require('uuid')
 const AppError = require('../utils/errors/AppError')
 
-module.exports.execute = ({ name, description, idGenre, releaseDate, fineAmount, dailyRate }) => {
+const createGame = async ({ name, description, idGenre, releaseDate, fineAmount, dailyRate }) => {
   const game = db.games.find(game => game.name === name)
 
   if (game) {
@@ -29,4 +29,14 @@ module.exports.execute = ({ name, description, idGenre, releaseDate, fineAmount,
   db.games.push(newGame)
 
   return newGame
+}
+
+const listGamesAvailable = async () => {
+  const availableGames = db.games.filter(game => game.available)
+  return availableGames
+}
+
+module.exports = {
+  createGame,
+  listGamesAvailable
 }

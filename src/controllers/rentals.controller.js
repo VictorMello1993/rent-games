@@ -1,12 +1,11 @@
-const createRentalService = require('../services/createRentalService')
-const devolutionRentalService = require('../services/devolutionRentalService')
+const rentalsService = require('../services/rentals.service')
 
-const cretateRental = (req, res, next) => {
+const cretateRental = async (req, res, next) => {
   try {
     const { id } = req.user
     const { gameId, expirationDate } = req.body
   
-    const result = createRentalService.execute({
+    const result = await rentalsService.createRental({
       userId: id,
       gameId,
       expirationDate
@@ -22,12 +21,12 @@ const cretateRental = (req, res, next) => {
   }
 }
 
-const devolution = (req, res, next) => {
+const devolution = async (req, res, next) => {
   try {
     const {id: userId} = req.user
     const {id} = req.params
   
-    const result = devolutionRentalService.execute({
+    const result = await rentalsService.devolution({
       id,
       userId
     })

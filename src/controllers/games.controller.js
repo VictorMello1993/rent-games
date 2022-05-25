@@ -1,11 +1,10 @@
-const createGameService = require('../services/createGameService')
-const listAvailableService = require('../services/listAvailableService')
+const gamesService = require('../services/games.service')
 
-const createGame = (req, res, next) => {
+const createGame = async (req, res, next) => {
   try {
     const { name, description, idGenre, releaseDate, dailyRate, fineAmount } = req.body
 
-    const result = createGameService.execute({
+    const result = await gamesService.createGame({
       name,
       description, 
       idGenre, 
@@ -21,9 +20,8 @@ const createGame = (req, res, next) => {
   }
 }
 
-const listAvailableGames = (req, res, next) => {
-  const result = listAvailableService.execute()
-
+const listAvailableGames = async (req, res, next) => {
+  const result = await gamesService.listGamesAvailable()
   return res.json(result)
 }
 
