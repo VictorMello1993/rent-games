@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  # Container do banco de dados
+  rent_games_database:
+    image: postgres
+    container_name: rent-games-database
+    restart: always
+    ports:
+      - 5432:5432 
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - pgdata:/data/postgres
+
+  # Container da aplicação
+  app:
+    build: .
+    container_name: rent-games-app
+    restart: always
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:      
+      - .:/usr/app
+    links:
+      - rent_games_database    
+    depends_on:
+      - rent_games_database  
+volumes:
+  pgdata:
+    driver: local
