@@ -1,7 +1,7 @@
-FROM node
+FROM node:16
 WORKDIR /usr/app
 COPY package*.json ./
-RUN yarn
+RUN npm install
 COPY . .
 EXPOSE 3000
-CMD ["yarn", "start:dev"]
+CMD ["npm", "run", "start:dev"]

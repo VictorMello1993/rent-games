@@ -1,9 +1,11 @@
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../../core/entities/User';
 import { IUsersRepository } from '../../core/repositories/iusers.repository';
 import { ICreateUserDTO } from '../../presentation/users/dtos/create-user.dto';
 
+@Injectable()
 export class UsersRepository implements IUsersRepository {
   constructor(
     @InjectRepository(User)
@@ -18,5 +20,7 @@ export class UsersRepository implements IUsersRepository {
     });
 
     await this.usersRepository.save(newUser);
+
+    return newUser;
   }
 }
