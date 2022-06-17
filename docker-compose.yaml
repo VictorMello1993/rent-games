@@ -13,23 +13,7 @@ services:
       - POSTGRES_DB=dev      
     volumes:
       - pgdata:/data/postgres
-
-  # Container da aplicação
-  app:
-    build: .
-    container_name: rent-games-app
-    restart: always
-    environment:
-      - DATABASE_URL=postgresql://victor:nest123@rent_games_database:5432/dev
-    ports:
-      - 3000:3000
-      - 9229:9229
-    volumes:      
-      - .:/usr/app
-    links:
-      - rent_games_database    
-    depends_on:
-      - rent_games_database  
+      
 volumes:
   pgdata:
     driver: local
