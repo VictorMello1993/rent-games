@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+import { Transform } from 'class-transformer';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -24,9 +26,13 @@ class User {
   @Column()
   telephone: string;
 
+  @Column()
+  birthDate: Date;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();
+      this.admin = false;
     }
   }
 }

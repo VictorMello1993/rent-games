@@ -23,7 +23,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'prettier/prettier': [
       'error',
-      { singleQuote: true, printWidth: 90, trailingComma: "all", endOfLine: "auto" }
+      { singleQuote: true, printWidth: 120, trailingComma: "all", endOfLine: "auto" }
     ],
     "@typescript-eslint/no-namespace": 'off',
     "@typescript-eslint/no-empty-function": 'off',

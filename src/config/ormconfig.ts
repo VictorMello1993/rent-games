@@ -7,9 +7,10 @@ export const AppDataSource = new DataSource({
   username: 'victor',
   password: 'nest123',
   database: 'dev',
-  migrations: [__dirname + '..' + 'infra/migrations/*{.ts,.js}'],
-  entities: [__dirname + '..' + 'core/entities/*{.ts,.js}'],
+  migrations: [__dirname + '/../infra/migrations/*{.ts,.js}'],
+  entities: [__dirname + '/../core/entities/*{.ts,.js}'],
   synchronize: true,
+  logging: true,
 });
 
 AppDataSource.initialize()

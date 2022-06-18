@@ -8,7 +8,7 @@ export class UsersController {
 
   @Post()
   create(@Body() createUserDto: ICreateUserDTO) {
-    // return this.usersService.create(createUserDto);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()

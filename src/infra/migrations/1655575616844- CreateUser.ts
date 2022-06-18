@@ -37,6 +37,10 @@ export class CreateUser1655420942180 implements MigrationInterface {
             name: 'telephone',
             type: 'varchar',
           },
+          {
+            name: 'birthDate',
+            type: 'date',
+          },
         ],
       }),
     );

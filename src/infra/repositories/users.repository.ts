@@ -11,12 +11,13 @@ export class UsersRepository implements IUsersRepository {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
   ) {}
-  async create({ name, email, telephone, password }: ICreateUserDTO) {
+  async create({ name, email, telephone, password, birthDate }: ICreateUserDTO) {
     const newUser = this.usersRepository.create({
       name,
       email,
       telephone,
       password,
+      birthDate,
     });
 
     await this.usersRepository.save(newUser);
