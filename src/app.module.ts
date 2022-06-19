@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Game } from './core/entities/Game';
 import { User } from './core/entities/User';
 import { CreateUser1655420942180 } from './infra/migrations/1655575616844- CreateUser';
+import { CreateGame1655584598158 } from './infra/migrations/1655599099856- CreateGame';
 import { PresentationModule } from './presentation/presentation.module';
 
 @Module({
@@ -13,11 +15,11 @@ import { PresentationModule } from './presentation/presentation.module';
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'victor',
-      password: 'nest123',
-      database: 'dev',
-      entities: [User],
-      migrations: [CreateUser1655420942180],
+      username: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DB,
+      entities: [User, Game],
+      migrations: [CreateUser1655420942180, CreateGame1655584598158],
       synchronize: true,
       autoLoadEntities: true,
     }),
