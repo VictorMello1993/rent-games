@@ -11,11 +11,11 @@ export class GamesRepository implements IGamesRepository {
     @InjectRepository(Game)
     private gamesRepository: Repository<Game>,
   ) {}
-  async create({ name, description, idGenre, releaseDate, dailyRate, fineAmount }: ICreateGameDTO) {
+  async create({ name, description, genre, releaseDate, dailyRate, fineAmount }: ICreateGameDTO) {
     const game = this.gamesRepository.create({
       name,
       description,
-      idGenre,
+      genre,
       releaseDate,
       dailyRate,
       fineAmount,

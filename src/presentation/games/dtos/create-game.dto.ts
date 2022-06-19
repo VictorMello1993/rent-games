@@ -1,7 +1,8 @@
+import { Genre } from './../../../core/entities/Game';
 export interface ICreateGameDTO {
   name: string;
   description: string;
-  idGenre: number;
+  genre: Genre;
   releaseDate: Date;
   dailyRate: number;
   fineAmount: number;

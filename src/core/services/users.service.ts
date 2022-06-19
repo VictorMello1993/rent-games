@@ -1,24 +1,36 @@
 import { Injectable } from '@nestjs/common';
 import { UsersRepository } from '../../infra/repositories/users.repository';
 import { ICreateUserDTO } from '../../presentation/users/dtos/create-user.dto';
-import { convertToArray, convertToDateObject } from '../../utils/helpers/DateHelpers';
-import { User } from '../entities/User';
+import { UserViewModel } from '../../presentation/users/dtos/user-view-model';
+import { generateHash } from '../../utils/helpers/auth.helpers';
+import { convertToArray, convertToDateObject } from '../../utils/helpers/date.helpers';
 
 @Injectable()
 export class UsersService {
   constructor(private userRepository: UsersRepository) {}
 
-  async create({ name, email, telephone, password, birthDate }: ICreateUserDTO): Promise<User> {
+  async create({ name, email, telephone, password, birthDate }: ICreateUserDTO): Promise<UserViewModel> {
     const dateArray = convertToArray(birthDate);
     const newBirthDate = convertToDateObject(dateArray);
 
-    const user = await this.userRepository.create({
+    const hashedPassword = await generateHash(password);
+
+    const newUser = await this.userRepository.create({
       name,
       email,
       telephone,
-      password,
+      password: hashedPassword,
       birthDate: newBirthDate,
     });
-    return user;
+
+    return {
+      id: newUser.id,
+      name: newUser.name,
+      email: newUser.email,
+      telephone: newUser.telephone,
+      birthDate: newUser.birthDate,
+      admin: newUser.admin,
+      createdAt: newUser.createdAt,
+    };
   }
 }
