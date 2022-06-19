@@ -1,18 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { GamesService } from '../../core/services/games.service';
-import { IRequest } from './dtos/create.game.request.dto';
+import { Controller, Get, Post, Body } from '@nestjs/common';
+import { GameViewModel } from '../../core/dtos/games/game.viewmodel';
+import { CreateGameUseCase } from '../../core/useCases/games/creategame.usecase';
+import { ListAvailableGamesUseCase } from '../../core/useCases/games/list.availablegames.usecase';
+import { ICreateGameRequest } from './dtos/creategame.request.dto';
 
 @Controller('games')
 export class GamesController {
-  constructor(private readonly gamesService: GamesService) {}
+  constructor(
+    private readonly _createGameUseCase: CreateGameUseCase,
+    private readonly _listAvailableGamesUseCase: ListAvailableGamesUseCase,
+  ) {}
 
   @Post()
-  create(@Body() request: IRequest) {
-    return this.gamesService.create(request);
+  create(@Body() request: ICreateGameRequest): Promise<GameViewModel> {
+    return this._createGameUseCase.execute(request);
   }
 
   @Get('available')
-  findAll() {
-    return this.gamesService.findAll();
+  findAll(): Promise<GameViewModel[]> {
+    return this._listAvailableGamesUseCase.execute();
   }
 }

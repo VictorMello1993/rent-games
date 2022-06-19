@@ -1,13 +1,14 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { UsersService } from '../../core/services/users.service';
-import { IRequest } from './dtos/create.user.request.dto';
+import { Controller, Post, Body } from '@nestjs/common';
+import { ICreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
+import { UserViewModel } from '../../core/dtos/users/user.viewmodel';
+import { CreateUserUseCase } from '../../core/useCases/users/createuser.usecase';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly _createUserUseCase: CreateUserUseCase) {}
 
   @Post()
-  create(@Body() request: IRequest) {
-    return this.usersService.create(request);
+  create(@Body() request: ICreateUserInputModel): Promise<UserViewModel> {
+    return this._createUserUseCase.execute(request);
   }
 }

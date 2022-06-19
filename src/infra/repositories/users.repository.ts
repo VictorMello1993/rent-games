@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ICreateUserInputModel } from '../../core/dtos/users/dtos/create.user.input.model';
+import { ICreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
 import { User } from '../../core/entities/User';
 import { IUsersRepository } from '../../core/repositories/iusers.repository';
 

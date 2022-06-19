@@ -1,4 +1,4 @@
-import { ICreateGameInputModel } from '../dtos/games/create.game.input.model';
+import { ICreateGameInputModel } from '../dtos/games/creategame.inputmodel';
 import { Game } from '../entities/Game';
 
 export interface IGamesRepository {

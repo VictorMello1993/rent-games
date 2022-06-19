@@ -25,7 +25,6 @@ import { PresentationModule } from './presentation/presentation.module';
       autoLoadEntities: true,
     }),
   ],
-  controllers: [],
   providers: [],
 })
 export class AppModule {}

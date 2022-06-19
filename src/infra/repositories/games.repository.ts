@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ICreateGameInputModel } from '../../core/dtos/games/create.game.input.model';
+import { ICreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
 import { Game } from '../../core/entities/Game';
 import { IGamesRepository } from '../../core/repositories/igames.repository';
 

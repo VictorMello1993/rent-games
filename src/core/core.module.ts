@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { InfraModule } from '../infra/infra.module';
-import { GamesService } from './services/games.service';
-import { UsersService } from './services/users.service';
+import { CreateGameUseCase } from './useCases/games/creategame.usecase';
+import { ListAvailableGamesUseCase } from './useCases/games/list.availablegames.usecase';
+import { CreateUserUseCase } from './useCases/users/createuser.usecase';
 
 @Module({
   imports: [InfraModule],
+  providers: [CreateUserUseCase, CreateGameUseCase, ListAvailableGamesUseCase],
+  exports: [CreateUserUseCase, CreateGameUseCase, ListAvailableGamesUseCase],
   controllers: [],
-  providers: [UsersService, GamesService],
-  exports: [UsersService, GamesService],
 })
 export class CoreModule {}
