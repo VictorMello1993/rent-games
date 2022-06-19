@@ -24,7 +24,7 @@ export class GamesService {
     return game;
   }
 
-  findAll() {
-    return `This action returns all games`;
+  async findAll(): Promise<Game[]> {
+    return await this.gamesRepository.listAll();
   }
 }

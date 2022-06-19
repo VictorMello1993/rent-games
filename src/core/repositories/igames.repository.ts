@@ -3,4 +3,5 @@ import { Game } from '../entities/Game';
 
 export interface IGamesRepository {
   create(data: ICreateGameDTO): Promise<Game>;
+  listAll(): Promise<Game[]>;
 }

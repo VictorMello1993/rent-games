@@ -11,6 +11,7 @@ export class GamesRepository implements IGamesRepository {
     @InjectRepository(Game)
     private gamesRepository: Repository<Game>,
   ) {}
+
   async create({ name, description, genre, releaseDate, dailyRate, fineAmount }: ICreateGameDTO) {
     const game = this.gamesRepository.create({
       name,
@@ -24,5 +25,13 @@ export class GamesRepository implements IGamesRepository {
     await this.gamesRepository.save(game);
 
     return game;
+  }
+
+  async listAll(): Promise<Game[]> {
+    return this.gamesRepository.find({
+      where: {
+        available: true,
+      },
+    });
   }
 }

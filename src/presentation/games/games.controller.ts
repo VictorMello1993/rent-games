@@ -11,7 +11,7 @@ export class GamesController {
     return this.gamesService.create(createGameDto);
   }
 
-  @Get()
+  @Get('available')
   findAll() {
     return this.gamesService.findAll();
   }
