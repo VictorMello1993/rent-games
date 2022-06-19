@@ -1,4 +1,4 @@
-export interface ICreateUserDTO {
+export interface ICreateUserInputModel {
   email: string;
   telephone: string;
   password: string;

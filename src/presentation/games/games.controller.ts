@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { GamesService } from '../../core/services/games.service';
-import { ICreateGameDTO } from './dtos/create-game.dto';
+import { IRequest } from './dtos/create.game.request.dto';
 
 @Controller('games')
 export class GamesController {
   constructor(private readonly gamesService: GamesService) {}
 
   @Post()
-  create(@Body() createGameDto: ICreateGameDTO) {
-    return this.gamesService.create(createGameDto);
+  create(@Body() request: IRequest) {
+    return this.gamesService.create(request);
   }
 
   @Get('available')

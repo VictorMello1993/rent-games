@@ -1,14 +1,14 @@
 ## Usuários
 * [x] Cadastro e usuários
 * [x] Criptografia de senha
-* [ ] Refatorar o serviço de usuários para que antes de cadastrar verificar se o usuário existe pelo e-mail
+* [x] Refatorar o serviço de usuários para que antes de cadastrar verificar se o usuário existe pelo e-mail
 * [ ] Autenticação e autorização
 
 ## Games
 * [x] Cadastro de games
 * [x] Listagem de games disponíveis para aluguel
-* [ ] Refatorar o serviço de games para que antes de cadastrar verificar se existe um jogo pelo nome
-* [ ] Verificar se antes de cadastrar um jogo o gênero informado é válido
+* [x] Refatorar o serviço de games para que antes de cadastrar verificar se existe um jogo pelo nome
+* [x] Verificar se antes de cadastrar um jogo o gênero informado é válido
 * [ ] Criar um middleware que verifique se o usuário está autenticado como administrador antes de cadastrar um jogo
 
 ## Alugueis
@@ -25,7 +25,6 @@
 
 
 ## Requisitos não funcionais
-* [ ] Criar um middleware para tratamento de erros das requisições
 * [ ] Criar um middleware para validação dos parâmetros de entrada da API
 * [ ] O tempo de duração do token do usuário deve ser de 4 horas
 * [ ] Criar os Input Models e View Models em vez de expor as classes de entidade nos serviços

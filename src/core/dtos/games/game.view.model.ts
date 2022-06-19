@@ -1,6 +1,7 @@
-import { Genre } from './../../../core/entities/Game';
+import { Genre } from '../../../core/entities/Game';
 
-export interface ICreateGameDTO {
+export class GameViewModel {
+  id: string;
   name: string;
   description: string;
   genre: Genre;
