@@ -5,7 +5,7 @@ export function convertToArray(date: Date): number[] {
     .map((part) => Number(part));
 }
 
-export function convertToDateObject(data: any) {
-  const [day, month, year] = data;
+export function convertToDateObject(date: any) {
+  const [day, month, year] = date;
   return new Date(year, month - 1, day);
 }

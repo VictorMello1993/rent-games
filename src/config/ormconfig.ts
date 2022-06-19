@@ -1,5 +1,10 @@
 import { DataSource } from 'typeorm';
 import 'dotenv/config';
+import { ModifyGenreColumn1655603593173 } from '../infra/migrations/1655603593173- ModifyGenreColumn';
+import { CreateGame1655584598158 } from '../infra/migrations/1655599099856- CreateGame';
+import { CreateUser1655420942180 } from '../infra/migrations/1655575616844- CreateUser';
+import { Game } from '../core/entities/Game';
+import { User } from '../core/entities/User';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -8,8 +13,8 @@ export const AppDataSource = new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  migrations: [__dirname + '/../infra/migrations/*{.ts,.js}'],
-  entities: [__dirname + '/../core/entities/*{.ts,.js}'],
+  migrations: [CreateUser1655420942180, CreateGame1655584598158, ModifyGenreColumn1655603593173],
+  entities: [User, Game],
   synchronize: true,
   logging: true,
 });
