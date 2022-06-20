@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import { GamesRepository } from '../../../infra/repositories/games.repository';
 import { AppError } from '../../../utils/errors/app.error';
 import { convertToArray, convertToDateObject } from '../../../utils/helpers/date.helpers';
 import { ICreateGameInputModel } from '../../dtos/games/creategame.inputmodel';
 import { GameViewModel } from '../../dtos/games/game.viewmodel';
 import { Genre } from '../../entities/Game';
-import { IGamesRepository } from '../../repositories/igames.repository';
 import { IBaseUseCase } from '../base.usecase';
 
 @Injectable()
 export class CreateGameUseCase implements IBaseUseCase<ICreateGameInputModel, Promise<GameViewModel>> {
-  constructor(private _gamesRepository: IGamesRepository) {}
+  constructor(private _gamesRepository: GamesRepository) {}
 
   async execute({
     name,

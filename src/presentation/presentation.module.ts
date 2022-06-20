@@ -6,6 +6,5 @@ import { UsersController } from './users/users.controller';
 @Module({
   imports: [CoreModule],
   controllers: [UsersController, GamesController],
-  providers: [],
 })
 export class PresentationModule {}

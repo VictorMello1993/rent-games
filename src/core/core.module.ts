@@ -8,6 +8,5 @@ import { CreateUserUseCase } from './useCases/users/createuser.usecase';
   imports: [InfraModule],
   providers: [CreateUserUseCase, CreateGameUseCase, ListAvailableGamesUseCase],
   exports: [CreateUserUseCase, CreateGameUseCase, ListAvailableGamesUseCase],
-  controllers: [],
 })
 export class CoreModule {}
