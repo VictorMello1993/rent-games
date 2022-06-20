@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Inject } from '@nestjs/common';
 import { ICreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
 import { UserViewModel } from '../../core/dtos/users/user.viewmodel';
 import { CreateUserUseCase } from '../../core/useCases/users/createuser.usecase';

@@ -1,16 +1,18 @@
-import { Injectable } from '@nestjs/common';
-import { GamesRepository } from '../../../infra/repositories/games.repository';
+import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
 import { convertToArray, convertToDateObject } from '../../../utils/helpers/date.helpers';
 import { ICreateGameInputModel } from '../../dtos/games/creategame.inputmodel';
 import { GameViewModel } from '../../dtos/games/game.viewmodel';
 import { Genre } from '../../entities/Game';
+import { IGamesRepository } from '../../repositories/igames.repository';
 import { IBaseUseCase } from '../base.usecase';
 
 @Injectable()
 export class CreateGameUseCase implements IBaseUseCase<ICreateGameInputModel, Promise<GameViewModel>> {
-  constructor(private _gamesRepository: GamesRepository) {}
-
+  constructor(
+    @Inject('IGamesRepository')
+    private _gamesRepository: IGamesRepository,
+  ) {}
   async execute({
     name,
     description,

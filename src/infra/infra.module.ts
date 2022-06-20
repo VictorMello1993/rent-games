@@ -7,7 +7,25 @@ import { UsersRepository } from './repositories/users.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Game])],
-  providers: [UsersRepository, GamesRepository],
-  exports: [UsersRepository, GamesRepository],
+  providers: [
+    {
+      provide: 'IGamesRepository',
+      useClass: GamesRepository,
+    },
+    {
+      provide: 'IUsersRepository',
+      useClass: UsersRepository,
+    },
+  ],
+  exports: [
+    {
+      provide: 'IUsersRepository',
+      useClass: UsersRepository,
+    },
+    {
+      provide: 'IGamesRepository',
+      useClass: GamesRepository,
+    },
+  ],
 })
 export class InfraModule {}
