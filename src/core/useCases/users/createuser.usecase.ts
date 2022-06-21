@@ -3,19 +3,19 @@ import { UsersRepository } from '../../../infra/repositories/users.repository';
 import { AppError } from '../../../utils/errors/app.error';
 import { generateHash } from '../../../utils/helpers/auth.helpers';
 import { convertToArray, convertToDateObject } from '../../../utils/helpers/date.helpers';
-import { ICreateUserInputModel } from '../../dtos/users/createuser.inputmodel';
+import { CreateUserInputModel } from '../../dtos/users/createuser.inputmodel';
 import { UserViewModel } from '../../dtos/users/user.viewmodel';
 import { IUsersRepository } from '../../repositories/iusers.repository';
 import { IBaseUseCase } from '../base.usecase';
 
 @Injectable()
-export class CreateUserUseCase implements IBaseUseCase<ICreateUserInputModel, Promise<UserViewModel>> {
+export class CreateUserUseCase implements IBaseUseCase<CreateUserInputModel, Promise<UserViewModel>> {
   constructor(
     @Inject('IUsersRepository')
     private readonly _usersRepository: IUsersRepository,
   ) {}
 
-  async execute({ name, email, telephone, password, birthDate }: ICreateUserInputModel): Promise<UserViewModel> {
+  async execute({ name, email, telephone, password, birthDate }: CreateUserInputModel): Promise<UserViewModel> {
     const dateArray = convertToArray(birthDate);
     const newBirthDate = convertToDateObject(dateArray);
 
@@ -24,7 +24,7 @@ export class CreateUserUseCase implements IBaseUseCase<ICreateUserInputModel, Pr
     const user = await this._usersRepository.findByEmail(email);
 
     if (user) {
-      throw new AppError('Usuário já existe com e-mail, informado');
+      throw new AppError('Usuário já existe com e-mail informado');
     }
 
     const newUser = await this._usersRepository.create({

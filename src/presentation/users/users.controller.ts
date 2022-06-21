@@ -1,5 +1,5 @@
 import { Controller, Post, Body, Inject } from '@nestjs/common';
-import { ICreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
+import { CreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
 import { UserViewModel } from '../../core/dtos/users/user.viewmodel';
 import { CreateUserUseCase } from '../../core/useCases/users/createuser.usecase';
 
@@ -8,7 +8,7 @@ export class UsersController {
   constructor(private readonly _createUserUseCase: CreateUserUseCase) {}
 
   @Post()
-  create(@Body() request: ICreateUserInputModel): Promise<UserViewModel> {
+  create(@Body() request: CreateUserInputModel): Promise<UserViewModel> {
     return this._createUserUseCase.execute(request);
   }
 }

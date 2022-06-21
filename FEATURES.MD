@@ -27,7 +27,7 @@
 ## Requisitos não funcionais
 * [ ] Criar um middleware para validação dos parâmetros de entrada da API
 * [ ] O tempo de duração do token do usuário deve ser de 4 horas
-* [ ] Criar os Input Models e View Models em vez de expor as classes de entidade nos serviços
+* [x] Criar os Input Models e View Models em vez de expor as classes de entidade nos serviços
 
 
 

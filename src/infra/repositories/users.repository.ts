@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ICreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
+import { CreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
 import { User } from '../../core/entities/User';
 import { IUsersRepository } from '../../core/repositories/iusers.repository';
 
@@ -12,7 +12,7 @@ export class UsersRepository implements IUsersRepository {
     private usersRepository: Repository<User>,
   ) {}
 
-  async create({ name, email, telephone, password, birthDate }: ICreateUserInputModel) {
+  async create({ name, email, telephone, password, birthDate }: CreateUserInputModel) {
     const newUser = this.usersRepository.create({
       name,
       email,
