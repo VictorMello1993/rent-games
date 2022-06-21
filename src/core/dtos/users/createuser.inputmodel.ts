@@ -1,21 +1,26 @@
-import { Equals, IsEmail, IsNotEmpty, Max, Min, NotEquals } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateUserInputModel {
+  @IsString()
   @IsEmail()
   @IsNotEmpty()
   email: string;
 
+  @IsString()
   @IsNotEmpty()
   telephone: string;
 
+  @IsString()
   @IsNotEmpty()
-  @Min(5)
+  @MaxLength(5)
   password: string;
 
+  @IsString()
+  @MaxLength(30)
   @IsNotEmpty()
-  @Max(30)
   name: string;
 
   @IsNotEmpty()
+  @IsString()
   birthDate: Date;
 }
