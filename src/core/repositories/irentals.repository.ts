@@ -1,6 +1,6 @@
-// import { ICreateGameInputModel } from '../dtos/games/creategame.inputmodel';
-// import { Rental } from '../entities/Rental';
+import { CreateRentalInputModel } from '../dtos/rentals/createrental.inputmodel';
+import { Rental } from '../entities/Rental';
 
-// export interface IRentalsRepository {
-//   create(data: CreateRentalInputModel): Promise<Rental>;
-// }
+export interface IRentalsRepository {
+  create(data: CreateRentalInputModel): Promise<Rental>;
+}
