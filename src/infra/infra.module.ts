@@ -32,6 +32,10 @@ import { UsersRepository } from './repositories/users.repository';
       provide: 'IGamesRepository',
       useClass: GamesRepository,
     },
+    {
+      provide: 'IRentalsRepository',
+      useClass: RentalsRepository,
+    },
   ],
 })
 export class InfraModule {}
