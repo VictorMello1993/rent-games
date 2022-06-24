@@ -42,4 +42,14 @@ export class GamesRepository implements IGamesRepository {
       },
     });
   }
+
+  async updateAvailable(gameId: string, available: boolean): Promise<void> {
+    await this.gamesRepository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where('id = :id')
+      .setParameters({ id: gameId })
+      .execute();
+  }
 }

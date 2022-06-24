@@ -9,17 +9,37 @@ export class RentalsRepository implements IRentalsRepository {
     @InjectRepository(Rental)
     private rentalsRepository: Repository<Rental>,
   ) {}
-  async create({ userId, gameId, expectedReturnDate, endDate, total }: CreateRentalInputModel): Promise<Rental> {
+
+  async create({ userId, gameId, expectedReturnDate, id, endDate, total }: CreateRentalInputModel): Promise<Rental> {
     const rental = this.rentalsRepository.create({
       userId,
       gameId,
       expectedReturnDate,
       endDate,
       total,
+      id,
     });
 
     await this.rentalsRepository.save(rental);
 
     return rental;
+  }
+
+  async findUnavailableGames(gameId: string): Promise<Rental> {
+    return this.rentalsRepository.findOne({
+      where: {
+        gameId,
+        endDate: null,
+      },
+    });
+  }
+
+  async findGameAlreadyRentByUser(userId: string): Promise<Rental> {
+    return this.rentalsRepository.findOne({
+      where: {
+        userId,
+        endDate: null,
+      },
+    });
   }
 }

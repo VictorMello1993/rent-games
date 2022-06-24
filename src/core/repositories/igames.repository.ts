@@ -5,4 +5,5 @@ export interface IGamesRepository {
   create(data: ICreateGameInputModel): Promise<Game>;
   listAll(): Promise<Game[]>;
   findByName(name: string): Promise<Game>;
+  updateAvailable(gameId: string, available: boolean): Promise<void>;
 }
