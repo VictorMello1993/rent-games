@@ -14,22 +14,17 @@ export function convertToDateObject(date: any) {
 }
 
 export function dateNow() {
-  return new Date();
+  return new Date().toLocaleDateString();
 }
 
-export function convertToUtc(date: Date) {
-  return dayjs(date).utc().local().format();
+export function convertToUtc(date: string): string {
+  const dateObj = new Date(date);
+  return dateObj.toUTCString();
 }
 
-export function compareInDays(startDate: Date, endDate: Date) {
-  const startDateArray = this.convertToArray(startDate);
-  const endDateArray = this.convertToArray(endDate);
-
-  const startDateAux = this.convertToDateObject(startDateArray);
-  const endDateAux = this.convertToDateObject(endDateArray);
-
-  const startDateUtc = this.convertToUtc(startDateAux);
-  const endDateUtc = this.convertToUtc(endDateAux);
+export function compareInDays(startDate: string, endDate: string): number {
+  const startDateUtc = this.convertToUtc(startDate);
+  const endDateUtc = this.convertToUtc(endDate);
 
   return dayjs(endDateUtc).diff(startDateUtc, 'days');
 }

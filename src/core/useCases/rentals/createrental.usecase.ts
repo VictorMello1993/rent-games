@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
-import { compareInDays, dateNow } from '../../../utils/helpers/date.helpers';
+import { compareInDays, convertToArray, convertToDateObject, dateNow } from '../../../utils/helpers/date.helpers';
 import { CreateRentalInputModel } from '../../dtos/rentals/createrental.inputmodel';
 import { RentalViewModel } from '../../dtos/rentals/rental.viewmodel';
 import { IGamesRepository } from '../../repositories/igames.repository';
@@ -16,10 +16,8 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
     @Inject('IGamesRepository')
     private _gamesRepository: IGamesRepository,
   ) {}
-  async execute({ userId, gameId, expectedReturnDate }: CreateRentalInputModel): Promise<RentalViewModel> {
+  async execute({ gameId, userId, expectedReturnDate }: CreateRentalInputModel): Promise<RentalViewModel> {
     const mininumDay = 7;
-
-    console.log(userId, gameId, expectedReturnDate);
 
     const gameUnavailable = await this._rentalsRepository.findUnavailableGames(gameId);
 
@@ -34,13 +32,15 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
     }
 
     const currentDate = dateNow();
-    const compare = compareInDays(currentDate, expectedReturnDate);
+    // const expectedReturnDateFormatted = new Date(expectedReturnDate).toDateString();
+
+    const compare = compareInDays(currentDate as string, expectedReturnDate as string);
 
     if (compare < mininumDay) {
       throw new AppError('Tempo de retorno inválido');
     }
 
-    const rental = await this._rentalsRepository.create({ userId, gameId, expectedReturnDate });
+    const rental = await this._rentalsRepository.create({ gameId, userId, expectedReturnDate });
 
     await this._gamesRepository.updateAvailable(gameId, false);
 

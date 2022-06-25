@@ -10,14 +10,11 @@ export class RentalsRepository implements IRentalsRepository {
     private rentalsRepository: Repository<Rental>,
   ) {}
 
-  async create({ userId, gameId, expectedReturnDate, id, endDate, total }: CreateRentalInputModel): Promise<Rental> {
+  async create({ userId, gameId, expectedReturnDate }: CreateRentalInputModel): Promise<Rental> {
     const rental = this.rentalsRepository.create({
       userId,
       gameId,
       expectedReturnDate,
-      endDate,
-      total,
-      id,
     });
 
     await this.rentalsRepository.save(rental);

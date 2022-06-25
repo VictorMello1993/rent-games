@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Inject } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { CreateRentalInputModel } from '../../core/dtos/rentals/createrental.inputmodel';
 import { RentalViewModel } from '../../core/dtos/rentals/rental.viewmodel';
 import { CreateRentalUseCase } from '../../core/useCases/rentals/createrental.usecase';

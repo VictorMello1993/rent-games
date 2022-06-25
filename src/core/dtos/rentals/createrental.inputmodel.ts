@@ -1,9 +1,15 @@
+import { IsDate, IsDateString, IsISO8601, IsNotEmpty, IsString, IsUUID } from 'class-validator';
+
 export class CreateRentalInputModel {
-  userId: string;
+  @IsUUID()
   gameId: string;
-  expectedReturnDate: Date;
-  id?: string;
-  endDate?: Date;
-  total?: number;
-  startDate?: Date;
+  @IsUUID()
+  userId: string;
+
+  @IsString()
+  expectedReturnDate: string;
+  // id?: string;
+  // endDate?: Date;
+  // total?: number;
+  // startDate?: Date;
 }

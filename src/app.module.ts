@@ -32,6 +32,5 @@ import { PresentationModule } from './presentation/presentation.module';
       autoLoadEntities: true,
     }),
   ],
-  providers: [],
 })
 export class AppModule {}
