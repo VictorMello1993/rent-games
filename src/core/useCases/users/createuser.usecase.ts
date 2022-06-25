@@ -15,7 +15,7 @@ export class CreateUserUseCase implements IBaseUseCase<CreateUserInputModel, Pro
   ) {}
 
   async execute({ name, email, telephone, password, birthDate }: CreateUserInputModel): Promise<UserViewModel> {
-    const dateArray = convertToArray(birthDate);
+    const dateArray = convertToArray(birthDate.toLocaleDateString());
     const newBirthDate = convertToDateObject(dateArray);
 
     const hashedPassword = await generateHash(password);

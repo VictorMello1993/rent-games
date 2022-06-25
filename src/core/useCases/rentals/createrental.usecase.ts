@@ -32,9 +32,7 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
     }
 
     const currentDate = dateNow();
-    // const expectedReturnDateFormatted = new Date(expectedReturnDate).toDateString();
-
-    const compare = compareInDays(currentDate as string, expectedReturnDate as string);
+    const compare = compareInDays(currentDate.toLocaleDateString(), expectedReturnDate);
 
     if (compare < mininumDay) {
       throw new AppError('Tempo de retorno inválido');

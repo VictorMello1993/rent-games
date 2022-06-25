@@ -34,7 +34,7 @@ export class CreateGameUseCase implements IBaseUseCase<ICreateGameInputModel, Pr
       throw new AppError('Gênero inválido');
     }
 
-    const dateArray = convertToArray(releaseDate);
+    const dateArray = convertToArray(releaseDate.toLocaleDateString());
     const releaseDateFormatted = convertToDateObject(dateArray);
 
     return await this._gamesRepository.create({

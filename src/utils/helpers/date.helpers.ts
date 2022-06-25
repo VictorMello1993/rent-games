@@ -1,7 +1,9 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 
-export function convertToArray(date: Date): number[] {
+dayjs.extend(utc);
+
+export function convertToArray(date: string): number[] {
   return date
     .toString()
     .split('/')
@@ -13,18 +15,21 @@ export function convertToDateObject(date: any) {
   return new Date(year, month - 1, day);
 }
 
-export function dateNow() {
-  return new Date().toLocaleDateString();
+export function dateNow(): Date {
+  return dayjs().toDate();
 }
 
-export function convertToUtc(date: string): string {
+export function convertToUtc(date: Date): string {
   const dateObj = new Date(date);
-  return dateObj.toUTCString();
+  return dayjs(dateObj).utc().local().format();
 }
 
 export function compareInDays(startDate: string, endDate: string): number {
-  const startDateUtc = this.convertToUtc(startDate);
-  const endDateUtc = this.convertToUtc(endDate);
+  const startDateObj = convertToDateObject(convertToArray(startDate));
+  const endDateObj = convertToDateObject(convertToArray(endDate));
+
+  const startDateUtc = convertToUtc(startDateObj);
+  const endDateUtc = convertToUtc(endDateObj);
 
   return dayjs(endDateUtc).diff(startDateUtc, 'days');
 }
