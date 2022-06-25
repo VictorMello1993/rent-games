@@ -43,6 +43,7 @@ class Rental {
   constructor() {
     if (!this.id) {
       this.id = uuidv4();
+      this.startDate = new Date();
     }
   }
 }

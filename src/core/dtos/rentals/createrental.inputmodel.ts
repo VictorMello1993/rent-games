@@ -8,8 +8,8 @@ export class CreateRentalInputModel {
 
   @IsString()
   expectedReturnDate: string;
-  // id?: string;
-  // endDate?: Date;
-  // total?: number;
-  // startDate?: Date;
+
+  id?: string;
+  endDate?: Date;
+  total?: number;
 }
