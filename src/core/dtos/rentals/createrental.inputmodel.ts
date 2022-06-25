@@ -5,4 +5,5 @@ export class CreateRentalInputModel {
   id?: string;
   endDate?: Date;
   total?: number;
+  startDate?: Date;
 }

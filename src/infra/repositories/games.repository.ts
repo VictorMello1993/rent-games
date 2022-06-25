@@ -28,7 +28,7 @@ export class GamesRepository implements IGamesRepository {
   }
 
   async listAll(): Promise<Game[]> {
-    return this.gamesRepository.find({
+    return await this.gamesRepository.find({
       where: {
         available: true,
       },
@@ -36,7 +36,7 @@ export class GamesRepository implements IGamesRepository {
   }
 
   async findByName(name: string): Promise<Game> {
-    return this.gamesRepository.findOne({
+    return await this.gamesRepository.findOne({
       where: {
         name,
       },

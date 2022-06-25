@@ -8,7 +8,7 @@ import { IRentalsRepository } from '../../repositories/irentals.repository';
 import { IBaseUseCase } from '../base.usecase';
 
 @Injectable()
-export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel, RentalViewModel> {
+export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel, Promise<RentalViewModel>> {
   constructor(
     @Inject('IRentalsRepository')
     private _rentalsRepository: IRentalsRepository,
@@ -16,8 +16,10 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
     @Inject('IGamesRepository')
     private _gamesRepository: IGamesRepository,
   ) {}
-  async execute({ userId, gameId, expectedReturnDate }: CreateRentalInputModel) {
+  async execute({ userId, gameId, expectedReturnDate }: CreateRentalInputModel): Promise<RentalViewModel> {
     const mininumDay = 7;
+
+    console.log(userId, gameId, expectedReturnDate);
 
     const gameUnavailable = await this._rentalsRepository.findUnavailableGames(gameId);
 
@@ -38,10 +40,16 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
       throw new AppError('Tempo de retorno inválido');
     }
 
-    const rental = this._rentalsRepository.create({ userId, gameId, expectedReturnDate });
+    const rental = await this._rentalsRepository.create({ userId, gameId, expectedReturnDate });
 
     await this._gamesRepository.updateAvailable(gameId, false);
 
-    return rental;
+    return {
+      id: rental.id,
+      userId: rental.userId,
+      gameId: rental.gameId,
+      expectedReturnGate: rental.expectedReturnDate,
+      startDate: rental.startDate,
+    };
   }
 }

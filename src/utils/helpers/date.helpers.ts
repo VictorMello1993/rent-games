@@ -14,7 +14,7 @@ export function convertToDateObject(date: any) {
 }
 
 export function dateNow() {
-  return dayjs().toDate();
+  return new Date();
 }
 
 export function convertToUtc(date: Date) {
