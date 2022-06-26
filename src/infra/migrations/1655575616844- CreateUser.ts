@@ -39,7 +39,7 @@ export class CreateUser1655420942180 implements MigrationInterface {
           },
           {
             name: 'birthDate',
-            type: 'date',
+            type: 'timestamp',
           },
         ],
       }),

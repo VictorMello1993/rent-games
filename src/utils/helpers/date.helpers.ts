@@ -4,10 +4,7 @@ import utc from 'dayjs/plugin/utc';
 dayjs.extend(utc);
 
 export function convertToArray(date: string): number[] {
-  return date
-    .toString()
-    .split('/')
-    .map((part) => Number(part));
+  return date.split('/').map((part) => Number(part));
 }
 
 export function convertToDateObject(date: any) {

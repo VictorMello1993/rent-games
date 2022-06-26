@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
+import { CreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
 import { GameViewModel } from '../../core/dtos/games/game.viewmodel';
 import { CreateGameUseCase } from '../../core/useCases/games/creategame.usecase';
 import { ListAvailableGamesUseCase } from '../../core/useCases/games/list.availablegames.usecase';
-import { ICreateGameRequest } from './dtos/creategame.request.dto';
 
 @Controller('games')
 export class GamesController {
@@ -12,8 +12,10 @@ export class GamesController {
   ) {}
 
   @Post()
-  create(@Body() request: ICreateGameRequest): Promise<GameViewModel> {
-    return this._createGameUseCase.execute(request);
+  create(
+    @Body() { name, description, genre, releaseDate, dailyRate, fineAmount }: CreateGameInputModel,
+  ): Promise<GameViewModel> {
+    return this._createGameUseCase.execute({ name, description, genre, releaseDate, dailyRate, fineAmount });
   }
 
   @Get('available')

@@ -25,7 +25,7 @@ export class CreateGame1655584598158 implements MigrationInterface {
           },
           {
             name: 'releaseDate',
-            type: 'date',
+            type: 'timestamp',
           },
           {
             name: 'dailyRate',
@@ -38,6 +38,7 @@ export class CreateGame1655584598158 implements MigrationInterface {
           {
             name: 'createdAt',
             type: 'timestamp',
+            default: 'now()',
           },
           {
             name: 'available',

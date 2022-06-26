@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ICreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
+import { CreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
 import { Game } from '../../core/entities/Game';
 import { IGamesRepository } from '../../core/repositories/igames.repository';
+import { convertToArray, convertToDateObject } from '../../utils/helpers/date.helpers';
 
 @Injectable()
 export class GamesRepository implements IGamesRepository {
@@ -12,12 +13,15 @@ export class GamesRepository implements IGamesRepository {
     private gamesRepository: Repository<Game>,
   ) {}
 
-  async create({ name, description, genre, releaseDate, dailyRate, fineAmount }: ICreateGameInputModel) {
+  async create({ name, description, genre, releaseDate, dailyRate, fineAmount }: CreateGameInputModel) {
+    const releaseDateArray = convertToArray(releaseDate);
+    const releaseDateObj = convertToDateObject(releaseDateArray);
+
     const game = this.gamesRepository.create({
       name,
       description,
       genre,
-      releaseDate,
+      releaseDate: releaseDateObj,
       dailyRate,
       fineAmount,
     });

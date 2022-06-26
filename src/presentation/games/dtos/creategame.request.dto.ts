@@ -4,7 +4,7 @@ export interface ICreateGameRequest {
   name: string;
   description: string;
   genre: Genre;
-  releaseDate: Date;
+  releaseDate: string;
   dailyRate: number;
   fineAmount: number;
 }

@@ -32,7 +32,7 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
     }
 
     const currentDate = dateNow();
-    const compare = compareInDays(currentDate.toLocaleDateString(), expectedReturnDate);
+    const compare = compareInDays(currentDate.toLocaleDateString('pt-BR'), expectedReturnDate);
 
     if (compare < mininumDay) {
       throw new AppError('Tempo de retorno inválido');
@@ -48,6 +48,7 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
       gameId: rental.gameId,
       expectedReturnGate: rental.expectedReturnDate,
       startDate: rental.startDate,
+      endDate: rental.endDate,
     };
   }
 }

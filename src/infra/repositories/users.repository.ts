@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
 import { User } from '../../core/entities/User';
 import { IUsersRepository } from '../../core/repositories/iusers.repository';
+import { convertToArray, convertToDateObject } from '../../utils/helpers/date.helpers';
 
 @Injectable()
 export class UsersRepository implements IUsersRepository {
@@ -13,12 +14,15 @@ export class UsersRepository implements IUsersRepository {
   ) {}
 
   async create({ name, email, telephone, password, birthDate }: CreateUserInputModel) {
+    const birthDateArray = convertToArray(birthDate);
+    const birthDateObj = convertToDateObject(birthDateArray);
+
     const newUser = this.usersRepository.create({
       name,
       email,
       telephone,
       password,
-      birthDate,
+      birthDate: birthDateObj,
     });
 
     await this.usersRepository.save(newUser);

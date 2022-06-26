@@ -22,5 +22,5 @@ export class CreateUserInputModel {
 
   @IsNotEmpty()
   @IsString()
-  birthDate: Date;
+  birthDate: string;
 }

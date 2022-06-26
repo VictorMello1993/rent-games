@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
 import { convertToArray, convertToDateObject } from '../../../utils/helpers/date.helpers';
-import { ICreateGameInputModel } from '../../dtos/games/creategame.inputmodel';
+import { CreateGameInputModel } from '../../dtos/games/creategame.inputmodel';
 import { GameViewModel } from '../../dtos/games/game.viewmodel';
 import { Genre } from '../../entities/Game';
 import { IGamesRepository } from '../../repositories/igames.repository';
 import { IBaseUseCase } from '../base.usecase';
 
 @Injectable()
-export class CreateGameUseCase implements IBaseUseCase<ICreateGameInputModel, Promise<GameViewModel>> {
+export class CreateGameUseCase implements IBaseUseCase<CreateGameInputModel, Promise<GameViewModel>> {
   constructor(
     @Inject('IGamesRepository')
     private _gamesRepository: IGamesRepository,
@@ -20,7 +20,7 @@ export class CreateGameUseCase implements IBaseUseCase<ICreateGameInputModel, Pr
     releaseDate,
     dailyRate,
     fineAmount,
-  }: ICreateGameInputModel): Promise<GameViewModel> {
+  }: CreateGameInputModel): Promise<GameViewModel> {
     const game = await this._gamesRepository.findByName(name);
 
     if (game) {
@@ -34,16 +34,23 @@ export class CreateGameUseCase implements IBaseUseCase<ICreateGameInputModel, Pr
       throw new AppError('Gênero inválido');
     }
 
-    const dateArray = convertToArray(releaseDate.toLocaleDateString());
-    const releaseDateFormatted = convertToDateObject(dateArray);
-
-    return await this._gamesRepository.create({
+    const newGame = await this._gamesRepository.create({
       name,
       description,
       genre,
-      releaseDate: releaseDateFormatted,
+      releaseDate,
       dailyRate,
       fineAmount,
     });
+
+    return {
+      id: newGame.id,
+      name: newGame.name,
+      description: newGame.description,
+      genre: newGame.genre,
+      releaseDate: newGame.releaseDate,
+      dailyRate: newGame.dailyRate,
+      fineAmount: newGame.fineAmount,
+    };
   }
 }

@@ -7,7 +7,6 @@ import { Game } from '../core/entities/Game';
 import { User } from '../core/entities/User';
 import { CreateRental1655947515544 } from '../infra/migrations/1655947515544- CreateRental';
 import { Rental } from '../core/entities/Rental';
-import { ModifyStartDateColumnRental1656198787785 } from '../infra/migrations/1656198787785- ModifyStartDateColumnRental';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -21,10 +20,8 @@ export const AppDataSource = new DataSource({
     CreateGame1655584598158,
     ModifyGenreColumn1655603593173,
     CreateRental1655947515544,
-    ModifyStartDateColumnRental1656198787785,
   ],
   entities: [User, Game, Rental],
-  synchronize: true,
   logging: true,
 });
 
