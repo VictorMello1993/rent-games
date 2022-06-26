@@ -9,7 +9,7 @@
 * [x] Listagem de games disponíveis para aluguel
 * [x] Refatorar o serviço de games para que antes de cadastrar verificar se existe um jogo pelo nome
 * [x] Verificar se antes de cadastrar um jogo o gênero informado é válido
-* [ ] Criar um middleware que verifique se o usuário está autenticado como administrador antes de cadastrar um jogo
+* [x] Criar um middleware que verifique se o usuário está autenticado como administrador antes de cadastrar um jogo
 
 ## Alugueis
 * [x] Efetuar aluguel de um jogo

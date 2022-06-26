@@ -27,6 +27,7 @@ export class LoginUserUseCase implements IBaseUseCase<LoginUserInputModel, Promi
 
     return {
       user: {
+        id: user.id,
         login,
         name: user.name,
         type: user.admin ? 'Admin' : 'User',

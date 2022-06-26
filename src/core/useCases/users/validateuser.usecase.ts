@@ -10,7 +10,7 @@ export class ValidateUserUseCase implements IBaseUseCase<ValidateUserInputModel,
     @Inject('IUsersRepository')
     private readonly _usersRepository: IUsersRepository,
   ) {}
-  async execute({ login, name }: ValidateUserInputModel): Promise<ValidateUserViewModel> {
+  async execute({ login }: ValidateUserInputModel): Promise<ValidateUserViewModel> {
     const user = await this._usersRepository.findByEmail(login);
 
     if (!user) {
@@ -19,6 +19,7 @@ export class ValidateUserUseCase implements IBaseUseCase<ValidateUserInputModel,
 
     return {
       user: {
+        id: user.id,
         login,
         name: user.name,
         type: user.admin ? 'Admin' : 'User',

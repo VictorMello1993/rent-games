@@ -18,10 +18,8 @@ export class GamesController {
   @Post()
   @Roles(Role.ADMIN)
   @UseGuards(JwtAuthGuard, RolesGuard)
-  create(
-    @Body() { name, description, genre, releaseDate, dailyRate, fineAmount }: CreateGameInputModel,
-  ): Promise<GameViewModel> {
-    return this._createGameUseCase.execute({ name, description, genre, releaseDate, dailyRate, fineAmount });
+  create(@Body() request: CreateGameInputModel): Promise<GameViewModel> {
+    return this._createGameUseCase.execute(request);
   }
 
   @Get('available')
