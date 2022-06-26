@@ -36,9 +36,9 @@ export class CreateUserUseCase implements IBaseUseCase<CreateUserInputModel, Pro
       name: newUser.name,
       email: newUser.email,
       telephone: newUser.telephone,
-      birthDate: newUser.birthDate,
+      birthDate: newUser.birthdate,
       admin: newUser.admin,
-      createdAt: newUser.createdAt,
+      createdAt: newUser.createdat,
     };
   }
 }

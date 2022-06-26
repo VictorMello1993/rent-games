@@ -19,13 +19,13 @@ class User {
   admin: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdat: Date;
 
   @Column()
   telephone: string;
 
   @Column()
-  birthDate: Date;
+  birthdate: Date;
 
   constructor() {
     if (!this.id) {

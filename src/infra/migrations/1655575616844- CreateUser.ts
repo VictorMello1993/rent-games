@@ -29,7 +29,7 @@ export class CreateUser1655420942180 implements MigrationInterface {
             default: false,
           },
           {
-            name: 'createdAt',
+            name: 'createdat',
             type: 'timestamp',
             default: 'now()',
           },
@@ -38,7 +38,7 @@ export class CreateUser1655420942180 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'birthDate',
+            name: 'birthdate',
             type: 'timestamp',
           },
         ],

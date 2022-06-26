@@ -22,7 +22,7 @@ export class UsersRepository implements IUsersRepository {
       email,
       telephone,
       password,
-      birthDate: birthDateObj,
+      birthdate: birthDateObj,
     });
 
     await this.usersRepository.save(newUser);

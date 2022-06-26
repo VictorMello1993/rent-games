@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "ts-node-dev --transpile-only ./node_modules/typeorm/cli.js",
     "migration:up": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:run -d ./src/config/ormconfig.ts",
-    "migration:create": "typeorm migration:create \"./src/infra/migrations/",
+    "migration:create": "typeorm migration:create \"./src/infra/migrations/ ",
     "migration:down": "ts-node --transpile-only ./node-modules/typeorm/cli.js migration:revert"
   },
   "dependencies": {
@@ -61,7 +61,6 @@
     "@types/node": "^16.0.0",
     "@types/passport": "^1.0.9",
     "@types/passport-http": "^0.3.9",
-    "@types/passport-jwt": "^3.0.6",
     "@types/supertest": "^2.0.11",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.0.0",

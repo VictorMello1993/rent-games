@@ -8,6 +8,7 @@ import { CreateUser1655420942180 } from './infra/migrations/1655575616844- Creat
 import { CreateGame1655584598158 } from './infra/migrations/1655599099856- CreateGame';
 import { ModifyGenreColumn1655603593173 } from './infra/migrations/1655603593173- ModifyGenreColumn';
 import { CreateRental1655947515544 } from './infra/migrations/1655947515544- CreateRental';
+import { AdminSeeder1656265574838 } from './infra/migrations/1656265574838-  AdminSeeder';
 import { PresentationModule } from './presentation/presentation.module';
 
 @Module({
@@ -27,6 +28,7 @@ import { PresentationModule } from './presentation/presentation.module';
         CreateGame1655584598158,
         ModifyGenreColumn1655603593173,
         CreateRental1655947515544,
+        AdminSeeder1656265574838,
       ],
       autoLoadEntities: true,
     }),
