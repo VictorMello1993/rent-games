@@ -28,7 +28,7 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
     const gameAlreadyRentByUser = await this._rentalsRepository.findGameAlreadyRentByUser(userId);
 
     if (gameAlreadyRentByUser) {
-      throw new AppError('Jogo já foi alugado.');
+      throw new AppError('Já existe um aluguel em aberto por este usuário.');
     }
 
     const currentDate = dateNow();
