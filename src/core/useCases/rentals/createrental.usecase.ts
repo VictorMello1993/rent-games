@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
-import { compareInDays, convertToArray, convertToDateObject, dateNow } from '../../../utils/helpers/date.helpers';
+import { compareInDays, dateNow } from '../../../utils/helpers/date.helpers';
 import { CreateRentalInputModel } from '../../dtos/rentals/createrental.inputmodel';
 import { RentalViewModel } from '../../dtos/rentals/rental.viewmodel';
 import { IGamesRepository } from '../../repositories/igames.repository';
