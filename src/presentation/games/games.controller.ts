@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Request } from '@nestjs/common';
 import { CreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
 import { GameViewModel } from '../../core/dtos/games/game.viewmodel';
 import { CreateGameUseCase } from '../../core/useCases/games/creategame.usecase';
 import { ListAvailableGamesUseCase } from '../../core/useCases/games/list.availablegames.usecase';
+import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 
 @Controller('games')
 export class GamesController {

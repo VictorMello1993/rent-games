@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { generateHash } from '../../utils/helpers/auth.helpers';
-import { convertToArray, convertToDateObject } from '../../utils/helpers/date.helpers';
 
 export class AdminSeeder1656265574838 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {

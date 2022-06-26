@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { GenerateJwtUseCase } from './useCases/auth/generatejwt.usecase';
 import { LoginUserUseCase } from './useCases/auth/loginuser.usercase';
 import 'dotenv/config';
+import { ValidateUserUseCase } from './useCases/users/validateuser.usecase';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import 'dotenv/config';
     CreateRentalUseCase,
     GenerateJwtUseCase,
     LoginUserUseCase,
+    ValidateUserUseCase,
   ],
   exports: [
     CreateUserUseCase,
@@ -32,6 +34,7 @@ import 'dotenv/config';
     CreateRentalUseCase,
     GenerateJwtUseCase,
     LoginUserUseCase,
+    ValidateUserUseCase,
   ],
 })
 export class CoreModule {}
