@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
-import { CreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
+import { CreateGameInputModel } from '../../core/dtos/games/create-game.inputmodel';
 import { GameViewModel } from '../../core/dtos/games/game.viewmodel';
-import { CreateGameUseCase } from '../../core/useCases/games/creategame.usecase';
+import { CreateGameUseCase } from '../../core/useCases/games/create-game.usecase';
 import { ListAvailableGamesUseCase } from '../../core/useCases/games/list.availablegames.usecase';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';

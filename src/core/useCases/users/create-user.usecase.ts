@@ -1,8 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
 import { generateHash } from '../../../utils/helpers/auth.helpers';
-import { convertToArray, convertToDateObject } from '../../../utils/helpers/date.helpers';
-import { CreateUserInputModel } from '../../dtos/users/createuser.inputmodel';
+
 import { UserViewModel } from '../../dtos/users/user.viewmodel';
 import { IUsersRepository } from '../../repositories/iusers.repository';
 import { IBaseUseCase } from '../base.usecase';

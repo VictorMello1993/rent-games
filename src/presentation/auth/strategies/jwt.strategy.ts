@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { ValidateUserUseCase } from '../../../core/useCases/users/validateuser.usecase';
 import { ExtractJwt, Strategy } from 'passport-jwt';
+import { ValidateUserUseCase } from '../../../core/useCases/users/validate-user.usecase';
 import 'dotenv/config';
 
 @Injectable()

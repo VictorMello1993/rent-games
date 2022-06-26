@@ -13,7 +13,7 @@
 
 ## Alugueis
 * [x] Efetuar aluguel de um jogo
-* [ ] O usuário deve estar autenticado como usuário comum para poder efetuar um aluguel
+* [x] O usuário deve estar autenticado como usuário comum para poder efetuar um aluguel
 * [x] O aluguel deve ter duração mínima de 7 dias
 
 ## Devolução do aluguel

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
 import { compareInDays, dateNow } from '../../../utils/helpers/date.helpers';
-import { CreateRentalInputModel } from '../../dtos/rentals/createrental.inputmodel';
+import { CreateRentalInputModel } from '../../dtos/rentals/create-rental.inputmodel';
 import { RentalViewModel } from '../../dtos/rentals/rental.viewmodel';
 import { IGamesRepository } from '../../repositories/igames.repository';
 import { IRentalsRepository } from '../../repositories/irentals.repository';

@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
 import { validatePassword } from '../../../utils/helpers/auth.helpers';
-import { LoginUserInputModel } from '../../dtos/auth/loginuser.inputmodel';
-import { LoginUserViewModel } from '../../dtos/auth/loginuser.viewmodel';
+import { LoginUserInputModel } from '../../dtos/auth/login-user.inputmodel';
+import { LoginUserViewModel } from '../../dtos/auth/login-user.viewmodel';
 import { IUsersRepository } from '../../repositories/iusers.repository';
 import { IBaseUseCase } from '../base.usecase';
 

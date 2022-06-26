@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { BasicStrategy as Strategy } from 'passport-http';
-import { LoginUserViewModel } from '../../../core/dtos/auth/loginuser.viewmodel';
+import { LoginUserViewModel } from '../../../core/dtos/auth/login-user.viewmodel';
 import { LoginUserUseCase } from '../../../core/useCases/auth/loginuser.usercase';
 import { AppError } from '../../../utils/errors/app.error';
 

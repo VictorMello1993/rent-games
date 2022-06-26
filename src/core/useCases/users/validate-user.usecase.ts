@@ -1,7 +1,7 @@
 import { Inject } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
-import { ValidateUserInputModel } from '../../dtos/users/validateuser.inputmodel';
-import { ValidateUserViewModel } from '../../dtos/users/validateuser.viewmode';
+import { ValidateUserInputModel } from '../../dtos/users/validate-user.inputmodel';
+import { ValidateUserViewModel } from '../../dtos/users/validate-user.viewmode';
 import { IUsersRepository } from '../../repositories/iusers.repository';
 import { IBaseUseCase } from '../base.usecase';
 

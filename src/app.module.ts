@@ -10,6 +10,7 @@ import { ModifyGenreColumn1655603593173 } from './infra/migrations/1655603593173
 import { CreateRental1655947515544 } from './infra/migrations/1655947515544- CreateRental';
 import { AdminSeeder1656265574838 } from './infra/migrations/1656265574838-  AdminSeeder';
 import { PresentationModule } from './presentation/presentation.module';
+import { DevolutionModule } from './devolution/devolution.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { PresentationModule } from './presentation/presentation.module';
       ],
       autoLoadEntities: true,
     }),
+    DevolutionModule,
   ],
 })
 export class AppModule {}

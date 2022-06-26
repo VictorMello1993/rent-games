@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { InfraModule } from '../infra/infra.module';
-import { CreateGameUseCase } from './useCases/games/creategame.usecase';
 import { ListAvailableGamesUseCase } from './useCases/games/list.availablegames.usecase';
-import { CreateRentalUseCase } from './useCases/rentals/createrental.usecase';
-import { CreateUserUseCase } from './useCases/users/createuser.usecase';
 import { JwtModule } from '@nestjs/jwt';
 import { GenerateJwtUseCase } from './useCases/auth/generatejwt.usecase';
 import { LoginUserUseCase } from './useCases/auth/loginuser.usercase';
+import { ValidateUserUseCase } from './useCases/users/validate-user.usecase';
+import { CreateUserUseCase } from './useCases/users/create-user.usecase';
 import 'dotenv/config';
-import { ValidateUserUseCase } from './useCases/users/validateuser.usecase';
+import { CreateRentalUseCase } from './useCases/rentals/create-rental.usecase';
+import { CreateGameUseCase } from './useCases/games/create-game.usecase';
 
 @Module({
   imports: [

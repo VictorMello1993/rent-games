@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
-import { CreateGameInputModel } from '../../dtos/games/creategame.inputmodel';
+import { CreateGameInputModel } from '../../dtos/games/create-game.inputmodel';
 import { GameViewModel } from '../../dtos/games/game.viewmodel';
 import { Genre } from '../../entities/Game';
 import { IGamesRepository } from '../../repositories/igames.repository';

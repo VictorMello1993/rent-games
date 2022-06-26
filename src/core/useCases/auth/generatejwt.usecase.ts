@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { GenerateJwtInputModel } from '../../dtos/auth/generatejwt.inputmodel';
-import { GenerateJwtViewModel } from '../../dtos/auth/generatejwtviewmodel';
 import { IBaseUseCase } from '../base.usecase';
 import { JwtService } from '@nestjs/jwt';
+import { GenerateJwtInputModel } from '../../dtos/auth/generate-jwt.inputmodel';
+import { GenerateJwtViewModel } from '../../dtos/auth/generate-jwt.viewmodel';
 
 @Injectable()
 export class GenerateJwtUseCase implements IBaseUseCase<GenerateJwtInputModel, Promise<GenerateJwtViewModel>> {
