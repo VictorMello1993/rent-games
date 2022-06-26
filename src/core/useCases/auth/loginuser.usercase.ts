@@ -29,7 +29,7 @@ export class LoginUserUseCase implements IBaseUseCase<LoginUserInputModel, Promi
       user: {
         login,
         name: user.name,
-        type: 'user',
+        type: user.admin ? 'Admin' : 'User',
       },
     };
   }

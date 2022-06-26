@@ -20,8 +20,8 @@ export class ValidateUserUseCase implements IBaseUseCase<ValidateUserInputModel,
     return {
       user: {
         login,
-        name,
-        type: 'user',
+        name: user.name,
+        type: user.admin ? 'Admin' : 'User',
       },
     };
   }

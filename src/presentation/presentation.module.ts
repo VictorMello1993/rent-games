@@ -7,10 +7,11 @@ import { GamesController } from './games/games.controller';
 import { RentalsController } from './rentals/rentals.controller';
 import { UsersController } from './users/users.controller';
 import { PassportModule } from '@nestjs/passport';
+import { RolesGuard } from './auth/guards/roles.guard';
 
 @Module({
   imports: [CoreModule, PassportModule],
-  providers: [BasicStrategy, JwtStrategy],
+  providers: [BasicStrategy, JwtStrategy, RolesGuard],
   controllers: [UsersController, GamesController, RentalsController, AuthController],
 })
 export class PresentationModule {}

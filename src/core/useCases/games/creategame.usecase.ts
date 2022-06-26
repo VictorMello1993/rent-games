@@ -1,6 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppError } from '../../../utils/errors/app.error';
-import { convertToArray, convertToDateObject } from '../../../utils/helpers/date.helpers';
 import { CreateGameInputModel } from '../../dtos/games/creategame.inputmodel';
 import { GameViewModel } from '../../dtos/games/game.viewmodel';
 import { Genre } from '../../entities/Game';
