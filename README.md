@@ -100,3 +100,13 @@ Os endpoints se encontram quando clicar no botão abaixo para importar a collect
 ### Insomnia
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rent%20games%20V2&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2Fd131fb9da2f202bbc0262eeb85f9b78d%2Fraw%2F54688f03c0f827f63d788aceabe905e2c9641285%2Fgistfile1.txt)
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a25e40f67392f1e39801?action=collection%2Fimport)
+
+Neste último caso, é importada somente a collection, e não environment junto como funciona no Insomnia. Para importá-lo, basta obter o arquivo `workspace.postman_globals.json` do código fonte, e dentro do Postman em **Environments** no menu lateral esquerdo, clicar em **import**
+
+![Screenshot_2](https://user-images.githubusercontent.com/35710766/169910033-a1b6f959-dbc8-4a79-927f-a945e33df483.png)
+
+</br>
+
+![Screenshot_3](https://user-images.githubusercontent.com/35710766/169910086-d7dbe783-1d76-4379-a6f2-4b62d8f8f298.png)
