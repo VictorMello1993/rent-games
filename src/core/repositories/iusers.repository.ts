@@ -1,4 +1,4 @@
-import { CreateUserInputModel } from '../dtos/users/createuser.inputmodel';
+import { CreateUserInputModel } from '../dtos/users/create-user.inputmodel';
 import { User } from '../entities/User';
 
 export interface IUsersRepository {

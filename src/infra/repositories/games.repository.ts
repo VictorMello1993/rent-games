@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateGameInputModel } from '../../core/dtos/games/creategame.inputmodel';
+import { CreateGameInputModel } from '../../core/dtos/games/create-game.inputmodel';
 import { Game } from '../../core/entities/Game';
 import { IGamesRepository } from '../../core/repositories/igames.repository';
 import { convertToArray, convertToDateObject } from '../../utils/helpers/date.helpers';
@@ -47,13 +47,21 @@ export class GamesRepository implements IGamesRepository {
     });
   }
 
-  async updateAvailable(gameId: string, available: boolean): Promise<void> {
+  async updateAvailable(id: string, available: boolean): Promise<void> {
     await this.gamesRepository
       .createQueryBuilder()
       .update()
       .set({ available })
       .where('id = :id')
-      .setParameters({ id: gameId })
+      .setParameters({ id })
       .execute();
+  }
+
+  async findById(id: string): Promise<Game> {
+    return await this.gamesRepository.findOne({
+      where: {
+        id,
+      },
+    });
   }
 }

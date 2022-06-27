@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateUserInputModel } from '../../core/dtos/users/createuser.inputmodel';
+import { CreateUserInputModel } from '../../core/dtos/users/create-user.inputmodel';
 import { User } from '../../core/entities/User';
 import { IUsersRepository } from '../../core/repositories/iusers.repository';
 import { convertToArray, convertToDateObject } from '../../utils/helpers/date.helpers';

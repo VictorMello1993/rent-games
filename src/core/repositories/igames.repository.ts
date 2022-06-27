@@ -1,9 +1,10 @@
-import { CreateGameInputModel } from '../dtos/games/creategame.inputmodel';
+import { CreateGameInputModel } from '../dtos/games/create-game.inputmodel';
 import { Game } from '../entities/Game';
 
 export interface IGamesRepository {
   create(data: CreateGameInputModel): Promise<Game>;
   listAll(): Promise<Game[]>;
   findByName(name: string): Promise<Game>;
-  updateAvailable(gameId: string, available: boolean): Promise<void>;
+  updateAvailable(id: string, available: boolean): Promise<void>;
+  findById(id: string): Promise<Game>;
 }

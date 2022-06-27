@@ -19,7 +19,7 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
   async execute({ gameId, userId, expectedReturnDate }: CreateRentalInputModel): Promise<RentalViewModel> {
     const mininumDay = 7;
 
-    const gameUnavailable = await this._rentalsRepository.findUnavailableGames(gameId);
+    const gameUnavailable = await this._rentalsRepository.findUnavailableGame(gameId);
 
     if (gameUnavailable) {
       throw new AppError('Jogo indisponível para aluguel.');

@@ -1,1 +1,4 @@
-export class CreateDevolutionDto {}
+export class CreateDevolutionInputModel {
+  userId: string;
+  rentalId: string;
+}

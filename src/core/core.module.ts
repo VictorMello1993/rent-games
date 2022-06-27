@@ -9,6 +9,7 @@ import { CreateUserUseCase } from './useCases/users/create-user.usecase';
 import 'dotenv/config';
 import { CreateRentalUseCase } from './useCases/rentals/create-rental.usecase';
 import { CreateGameUseCase } from './useCases/games/create-game.usecase';
+import { DevolutionUseCase } from './useCases/rentals/devolution.usecase';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { CreateGameUseCase } from './useCases/games/create-game.usecase';
     GenerateJwtUseCase,
     LoginUserUseCase,
     ValidateUserUseCase,
+    DevolutionUseCase,
   ],
   exports: [
     CreateUserUseCase,
@@ -35,6 +37,7 @@ import { CreateGameUseCase } from './useCases/games/create-game.usecase';
     GenerateJwtUseCase,
     LoginUserUseCase,
     ValidateUserUseCase,
+    DevolutionUseCase,
   ],
 })
 export class CoreModule {}
