@@ -82,7 +82,7 @@ yarn start:dev
 ## Banco de dados
 1. para testar o endpoint de autenticação de usuário, é preciso adicionar o arquivo `.env` na raíz do projeto com a variável `JWT_SECRET_KEY` para incluir o valor da chave secreta que deve ser criptografada. Deixarei o arquivo `.env.example` para melhor visualização.
 
-2. foi utilizado Postgres como banco de dados relacional de escolha, e para estabelecer uma conexão, execute o comando `docker-compose up -d` para criar uma imagem e executar container do Postgres. Depois disso, para acessá-lo, bastar preencher os credenciais conforme o nome das variáveis de ambiente no arquivo `.env.example`
+2. foi utilizado Postgres como banco de dados relacional de escolha, e para estabelecer uma conexão, execute o comando `docker-compose up -d` para criar uma imagem e executar container do Postgres. Depois disso, para acessar a base de dados, bastar preencher os credenciais conforme o nome das variáveis de ambiente no arquivo `.env.example` dentro de um programa SGBD instalado em seu computador.
 
 3. foi utilizado o padrão Code First para criação de tabelas ao banco de dados de maneira automatizada, através das migrations. Para subir as tabelas, basta executar o script abaixo:
 
