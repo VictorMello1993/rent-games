@@ -17,11 +17,11 @@
 * [x] O aluguel deve ter duração mínima de 7 dias
 
 ## Devolução do aluguel
-* [ ] Devolução de um jogo
-* [ ] Se o horário de devolução for superior ao horário previsto de entrega, calcular o valor da multa proporcional aos dias de atraso
-* [ ] Se o jogo for devolvido em menos de 7 dias, será cobrado o valor da diária
-* [ ] Ao realizar a devolução, será obtido o valor total do aluguel (diária + multa)
-* [ ] O usuário deve estar autenticado para efetuar uma devolução
+* [x] Devolução de um jogo
+* [x] Se o horário de devolução for superior ao horário previsto de entrega, calcular o valor da multa proporcional aos dias de atraso
+* [x] Se o jogo for devolvido em menos de 7 dias, será cobrado o valor da diária
+* [x] Ao realizar a devolução, será obtido o valor total do aluguel (diária + multa)
+* [x] O usuário deve estar autenticado para efetuar uma devolução
 
 
 ## Requisitos não funcionais
