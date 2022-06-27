@@ -56,7 +56,7 @@ API responsável pelo gerenciamento de alugueis de games de uma locadora.
 
 ## Executando o projeto
 
-1. Selecionar a branch **with-nestjs** e clonar o repositório  
+1. Selecionar a branch `with-nestjs` e clonar o repositório  
 ```sh
 git clone https://github.com/VictorMello1993/rent-games.git
 ```
@@ -79,11 +79,12 @@ npm run start:dev
 yarn start:dev
 ```
 
-OBS1: para testar o endpoint de autenticação de usuário, é preciso adicionar o arquivo `.env` na raíz do projeto com a variável JWT_SECRET_KEY para incluir o valor da chave secreta que deve ser criptografada. Deixarei o arquivo `.env.example` para melhor visualização.
+## Banco de dados
+1. para testar o endpoint de autenticação de usuário, é preciso adicionar o arquivo `.env` na raíz do projeto com a variável `JWT_SECRET_KEY` para incluir o valor da chave secreta que deve ser criptografada. Deixarei o arquivo `.env.example` para melhor visualização.
 
-OBS2: foi utilizado Postgres como banco de dados relacional de escolha, e para estabelecer uma conexão, execute o comando ``docker-compose up -d`` para criar uma imagem e executar container do Postgres. Depois disso, para acessá-lo, bastar preencher os credenciais conforme o nome das variáveis de ambiente no arquivo `.env.example`
+2. foi utilizado Postgres como banco de dados relacional de escolha, e para estabelecer uma conexão, execute o comando `docker-compose up -d` para criar uma imagem e executar container do Postgres. Depois disso, para acessar a base de dados, bastar preencher os credenciais conforme o nome das variáveis de ambiente no arquivo `.env.example` dentro de um programa SGBD instalado em seu computador.
 
-OBS3: foi utilizado o padrão Code First para criação de tabelas ao banco de dados de maneira automatizada, através das migrations. Para subir as tabelas, basta executar o script abaixo:
+3. foi utilizado o padrão Code First para criação de tabelas ao banco de dados de maneira automatizada, através das migrations. Para subir as tabelas, basta executar o script abaixo:
 
 ```sh
 #npm
@@ -96,5 +97,17 @@ yarn migration:up
 ## Endpoints para importar
 Os endpoints se encontram quando clicar no botão abaixo para importar a collection automaticamente dentro de um programa cliente HTTP (contanto que já possua um cliente instalado no computador). Dessa forma, isso elimina a necessidade de ter um arquivo json salvo no seu computador e ter que importar manualmente dentro de um cliente.
 
-###Insomnia
+### Insomnia
+
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rent%20games%20V2&uri=https%3A%2F%2Fgist.githubusercontent.com%2FVictorMello1993%2Fd131fb9da2f202bbc0262eeb85f9b78d%2Fraw%2F54688f03c0f827f63d788aceabe905e2c9641285%2Fgistfile1.txt)
+
+### Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a25e40f67392f1e39801?action=collection%2Fimport)
+
+Neste último caso, é importada somente a collection, e não environment junto como funciona no Insomnia. Para importá-lo, basta obter o arquivo `workspace.postman_globals.json` do código fonte, e dentro do Postman em **Environments** no menu lateral esquerdo, clicar em **import**
+
+![Screenshot_2](https://user-images.githubusercontent.com/35710766/169910033-a1b6f959-dbc8-4a79-927f-a945e33df483.png)
+
+</br>
+
+![Screenshot_3](https://user-images.githubusercontent.com/35710766/169910086-d7dbe783-1d76-4379-a6f2-4b62d8f8f298.png)
