@@ -24,7 +24,7 @@ export class DevolutionUseCase implements IBaseUseCase<CreateDevolutionInputMode
       throw new AppError('Aluguel inexistente.');
     }
 
-    const game = await this._gamesRepository.findById(rental.gameId);
+    const game = await this._gamesRepository.findById(rental.gameid);
 
     if (!game) {
       throw new AppError('Jogo não cadastrado.');
@@ -33,7 +33,7 @@ export class DevolutionUseCase implements IBaseUseCase<CreateDevolutionInputMode
     const currentDate = dateNow();
 
     //Cálculo da diária
-    let daily = compareInDays(rental.startDate.toLocaleDateString('pt-BR'), currentDate.toLocaleDateString('pt-BR'));
+    let daily = compareInDays(rental.startdate.toLocaleDateString('pt-BR'), currentDate.toLocaleDateString('pt-BR'));
 
     if (daily <= 0) {
       daily = mininumDay;
@@ -57,29 +57,29 @@ export class DevolutionUseCase implements IBaseUseCase<CreateDevolutionInputMode
     total += daily * game.dailyRate;
 
     //Atualizando o aluguel com o valor total e a data de devolução
-    rental.endDate = currentDate;
+    rental.enddate = currentDate;
     rental.total = total;
     rental.updatedAt = dateNow();
 
     await this._rentalsRepository.create({
-      gameId: rental.gameId,
-      userId: rental.userId,
+      gameId: rental.gameid,
+      userId: rental.userid,
       expectedReturnDate: rental.expectedReturnDate.toLocaleDateString('pt-BR'),
       id: rental.id,
-      endDate: rental.endDate,
+      endDate: rental.enddate,
       total: rental.total,
     });
 
     //Atualizando o status do jogo para disponível
-    await this._gamesRepository.updateAvailable(rental.gameId, true);
+    await this._gamesRepository.updateAvailable(rental.gameid, true);
 
     return {
       id: rental.id,
-      userId: rental.userId,
-      gameId: rental.gameId,
+      userId: rental.userid,
+      gameId: rental.gameid,
       expectedReturnGate: rental.expectedReturnDate,
-      endDate: rental.endDate,
-      startDate: rental.startDate,
+      endDate: rental.enddate,
+      startDate: rental.startdate,
       total: rental.total,
     };
   }

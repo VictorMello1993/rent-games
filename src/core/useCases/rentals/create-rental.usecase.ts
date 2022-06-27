@@ -21,13 +21,13 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
 
     const gameUnavailable = await this._rentalsRepository.findUnavailableGame(gameId);
 
-    if (gameUnavailable) {
+    if (gameUnavailable && !gameUnavailable.game.available) {
       throw new AppError('Jogo indisponível para aluguel.');
     }
 
     const gameAlreadyRentByUser = await this._rentalsRepository.findGameAlreadyRentByUser(userId);
 
-    if (gameAlreadyRentByUser) {
+    if (gameAlreadyRentByUser && !gameAlreadyRentByUser.enddate) {
       throw new AppError('Já existe um aluguel em aberto por este usuário.');
     }
 
@@ -44,11 +44,11 @@ export class CreateRentalUseCase implements IBaseUseCase<CreateRentalInputModel,
 
     return {
       id: rental.id,
-      userId: rental.userId,
-      gameId: rental.gameId,
+      userId: rental.userid,
+      gameId: rental.gameid,
       expectedReturnGate: rental.expectedReturnDate,
-      startDate: rental.startDate,
-      endDate: rental.endDate,
+      startDate: rental.startdate,
+      endDate: rental.enddate,
     };
   }
 }

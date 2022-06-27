@@ -9,17 +9,13 @@ export class RentalsRepository implements IRentalsRepository {
     @InjectRepository(Rental)
     private rentalsRepository: Repository<Rental>,
   ) {}
-  findUnavailableGames(gameId: string): Promise<Rental> {
-    throw new Error('Method not implemented.');
-  }
-
   async create({ userId, gameId, expectedReturnDate, id, endDate, total }: CreateRentalInputModel): Promise<Rental> {
     const rental = this.rentalsRepository.create({
-      userId,
-      gameId,
+      userid: userId,
+      gameid: gameId,
       expectedReturnDate: new Date(expectedReturnDate),
       id,
-      endDate,
+      enddate: endDate,
       total,
     });
 
@@ -28,19 +24,14 @@ export class RentalsRepository implements IRentalsRepository {
     return rental;
   }
 
-  async findUnavailableGame(gameId: string): Promise<Rental[]> | undefined {
-    // const rental = await this.rentalsRepository.findOne({
-    //   where: {
-    //     gameId,
-    //     endDate: null,
-    //   },
-    // });
-
-    const rental = await this.rentalsRepository.query(
-      `SELECT * FROM rentals 
-        WHERE gameId = ${1} AND endDate IS NULL`,
-      [gameId],
-    );
+  async findUnavailableGame(gameId: string): Promise<Rental> {
+    const rental = await this.rentalsRepository.findOne({
+      where: {
+        gameid: gameId,
+        enddate: null,
+      },
+      relations: ['game'],
+    });
 
     return rental;
   }
@@ -48,8 +39,8 @@ export class RentalsRepository implements IRentalsRepository {
   async findGameAlreadyRentByUser(userId: string): Promise<Rental> {
     return this.rentalsRepository.findOne({
       where: {
-        userId,
-        endDate: null,
+        userid: userId,
+        enddate: null,
       },
     });
   }

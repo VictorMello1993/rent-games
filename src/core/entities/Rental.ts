@@ -12,10 +12,10 @@ class Rental {
   expectedReturnDate: Date;
 
   @Column()
-  startDate: Date;
+  startdate: Date;
 
   @Column()
-  endDate: Date;
+  enddate: Date;
 
   @Column()
   total: number;
@@ -27,23 +27,23 @@ class Rental {
   updatedAt: Date;
 
   @Column()
-  userId: string;
+  userid: string;
 
   @Column()
-  gameId: string;
+  gameid: string;
 
   @ManyToOne(() => Game)
-  @JoinColumn({ name: 'gameId' })
+  @JoinColumn({ name: 'gameid' })
   game: Game;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'userId' })
+  @JoinColumn({ name: 'userid' })
   user: User;
 
   constructor() {
     if (!this.id) {
       this.id = uuidv4();
-      this.startDate = new Date();
+      this.startdate = new Date();
     }
   }
 }
