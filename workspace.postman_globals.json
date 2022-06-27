@@ -1,0 +1,27 @@
+{
+	"id": "a8fc013a-bf34-4864-85c9-82a1fb237183",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "adminToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkB0ZXN0LmNvbSIsIm5hbWUiOiJhZG1pbiIsInR5cGUiOiJBZG1pbiIsImlhdCI6MTY1NjMyNDk2MSwiZXhwIjoxNjU2MzM5MzYxfQ.QjvWItA-i1s-YhQ920YijcNxvp9olN-wiVPgjgQ6gTE",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMUBnbWFpbC5jb20iLCJuYW1lIjoiVmljdG9yIiwidHlwZSI6IlVzZXIiLCJpYXQiOjE2NTYzMjU0ODgsImV4cCI6MTY1NjMzOTg4OH0.Guj0erjg4R9PmYqqPG0f0D_LjhHFv8Oz2LJY9hPpJOo",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-06-27T10:36:07.441Z",
+	"_postman_exported_using": "Postman/9.19.3"
+}
