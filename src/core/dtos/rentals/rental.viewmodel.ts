@@ -1,5 +1,5 @@
 export class RentalViewModel {
-  id: string;
+  id?: string;
   userId: string;
   gameId: string;
   expectedReturnGate: Date;
