@@ -6,7 +6,7 @@ services:
     container_name: rent-games-database
     restart: always
     ports:
-      - 5432:5432 
+      - ${DB_PORT}:${DB_PORT}
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
